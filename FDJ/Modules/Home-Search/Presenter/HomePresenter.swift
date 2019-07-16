@@ -25,8 +25,10 @@ class HomePresenter: PresenterProtocol {
             switch results {
             case .success(let collection):
                 guard let teams = collection as? [Team] else { return }
-                self.view?.didSucceed(with: teams)
-                self.view?.stopLoading()
+                DispatchQueue.main.async {
+                    self.view?.didSucceed(with: teams)
+                    self.view?.stopLoading()
+                }
             case .failure(let error): self.view?.didFail(with: error)
             }
         })

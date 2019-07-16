@@ -9,7 +9,9 @@
 import UIKit
 
 class HomeViewController: UIViewController, ViewProtocol {
+    @IBOutlet weak var collectionView: UICollectionView!
     var presenter: HomePresenter?
+    var dataSource = TeamDataSource(items: [])
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -18,6 +20,8 @@ class HomeViewController: UIViewController, ViewProtocol {
     
     func setup() {
         presenter = HomePresenter(with: self)
+        collectionView.dataSource = dataSource
+        collectionView.register(UINib(nibName: TeamCell.identifier, bundle: nil), forCellWithReuseIdentifier: TeamCell.identifier)
     }
     
     func show() {
@@ -27,13 +31,13 @@ class HomeViewController: UIViewController, ViewProtocol {
     func startLoading() {}
     
     func stopLoading() {}
-   
-    
 }
 
 extension HomeViewController {
     func didSucceed(with data: [Any]) {
-        print(data as? [Team])
+        guard let teams = data as? [Team] else { return }
+        dataSource.update(with: teams)
+        collectionView.reloadData()
     }
     func didFail(with error: Error) {
         print(error.localizedDescription)

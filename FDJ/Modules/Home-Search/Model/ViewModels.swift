@@ -25,5 +25,11 @@ struct LeagueViewModel {
 struct TeamViewModel {
     let id: String
     let name: String
-    //let badge: UIImage(named: )
+    let badge: URL?
+    
+    init(with team: Team) {
+        self.id = team.idTeam
+        self.name = team.strTeam
+        self.badge = URL(string: team.strTeamBadge) 
+    }
 }

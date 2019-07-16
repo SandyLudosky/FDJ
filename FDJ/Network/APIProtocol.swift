@@ -30,7 +30,6 @@ extension APIProtocol {
         guard let url = components.url,
             let encodedURL = url.encode()
             else { throw ErrorHandler.invalidRequest }
-        print(url)
-        return URLRequest(url: encodedURL)
+        return URLRequest(url: url)
     }
 }

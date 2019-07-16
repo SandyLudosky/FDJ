@@ -11,9 +11,9 @@ import Foundation
 
 class League: Decodable {
     let idLeague: String
-    let strLeague: String
-    let strSport: String
-    let strLeagueAlternate: String
+    let strLeague: String?
+    let strSport: String?
+    let strLeagueAlternate: String?
 }
 
 struct Team: Decodable {

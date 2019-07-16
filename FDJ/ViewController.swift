@@ -9,10 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    let dataManager = DataManager()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        dataManager.get(Team.self, for: .list(.allTeams("English Premier League"))) { results in
+            switch results {
+            case .success(let collection): print(collection)
+            case .failure(let error): print(error.description ?? "error")
+            }
+        }
     }
 }
 

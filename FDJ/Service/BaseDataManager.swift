@@ -25,7 +25,7 @@ class BaseDataManager: DataManagerProtocol {
             }
         }
     }
-    func jsonEncoder<T: Decodable>(_ json: [String : Any], with key: String, for type: T.Type)  throws -> Any {
+    func jsonEncoder<T: Decodable>(_ json: [String : Any], with key: String, for type: T.Type)  throws -> T {
         guard let data = try? JSONSerialization.data(withJSONObject: json, options: []) else {
             throw ErrorHandler.invalidData
         }

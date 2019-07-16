@@ -14,10 +14,13 @@ class DataManager: BaseDataManager {
         client.get(with: service) { [weak self] results in
             switch results {
             case .dict(let dict):
-                guard let collection =  try? self?.jsonEncoder(dict, with: service.key, for: Team.self) as? [Team] else {
+                guard let array = dict[service.key] as? [[String: Any]] else {
                     completion(.failure(.jsonParsingFailure))
                     return
                 }
+                let collection = array.map({ dict -> T? in
+                    return try? self?.jsonEncoder(dict, with: service.key, for: T.self)
+                })
                 completion(.success(collection))
             case .data, .array: break
             case .error(let reason): completion(.failure(reason))

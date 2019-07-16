@@ -187,6 +187,7 @@
 		268803EE22DDE8A8003D375B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				268803F522DE3CCE003D375B /* Team.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -204,7 +205,6 @@
 		268803F422DE3C82003D375B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				268803F522DE3CCE003D375B /* Team.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

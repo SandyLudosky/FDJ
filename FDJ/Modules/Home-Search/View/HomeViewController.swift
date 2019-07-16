@@ -55,6 +55,10 @@ extension HomeViewController {
 
 //MARK: UISearchBarDelegate & UISearchResultsUpdating & UISearchControllerDelegate
 extension HomeViewController: UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+    
     var isSeachBarEmpty: Bool {
         return searchController.searchBar.text == ""
     }
@@ -90,22 +94,19 @@ extension HomeViewController: UISearchResultsUpdating, UISearchBarDelegate, UISe
        
     }
     
-    private func updateSearchResults() {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         show()
         searchActive = true
     }
     
-    func updateSearchResults(for searchController: UISearchController) {
-        updateSearchResults()
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        show()
+        searchActive = true
     }
+  
     @objc func dismissSearchResultsController(_ sender: UIBarButtonItem) {
         searchActive = false
         self.dismiss(animated: true, completion: nil)
-        show()
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        show()
     }
 }
 

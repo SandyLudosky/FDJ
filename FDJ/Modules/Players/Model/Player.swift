@@ -9,18 +9,6 @@
 import Foundation
 
 
-class League: Decodable {
-    let idLeague: String
-    let strLeague: String?
-    let strSport: String?
-    let strLeagueAlternate: String?
-}
-
-struct Team: Decodable {
-    let idTeam: String
-    let strTeam: String
-    let strTeamBadge: String
-}
 
 struct Player: Decodable {
     let idPlayer: String

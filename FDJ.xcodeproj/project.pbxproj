@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		268803AC22DDE291003D375B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803AB22DDE291003D375B /* AppDelegate.swift */; };
-		268803AE22DDE291003D375B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803AD22DDE291003D375B /* ViewController.swift */; };
+		268803AE22DDE291003D375B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803AD22DDE291003D375B /* HomeViewController.swift */; };
 		268803B122DDE291003D375B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268803AF22DDE291003D375B /* Main.storyboard */; };
 		268803B322DDE292003D375B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 268803B222DDE292003D375B /* Assets.xcassets */; };
 		268803B622DDE292003D375B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268803B422DDE292003D375B /* LaunchScreen.storyboard */; };
@@ -25,7 +25,10 @@
 		268803ED22DDE366003D375B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803E922DDE366003D375B /* Extensions.swift */; };
 		268803F122DE010A003D375B /* Enums+Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803F022DE010A003D375B /* Enums+Service.swift */; };
 		268803F322DE3B01003D375B /* BaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803F222DE3B01003D375B /* BaseDataManager.swift */; };
-		268803F622DE3CCE003D375B /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803F522DE3CCE003D375B /* Team.swift */; };
+		268803F622DE3CCE003D375B /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803F522DE3CCE003D375B /* Models.swift */; };
+		2688040122DE4EC5003D375B /* PlayerViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2688040022DE4EC5003D375B /* PlayerViewModels.swift */; };
+		2688040322DE4EF3003D375B /* ViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2688040222DE4EF3003D375B /* ViewModels.swift */; };
+		2688040522DE5064003D375B /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2688040422DE5064003D375B /* HomePresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +51,7 @@
 /* Begin PBXFileReference section */
 		268803A822DDE291003D375B /* FDJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FDJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		268803AB22DDE291003D375B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		268803AD22DDE291003D375B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		268803AD22DDE291003D375B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		268803B022DDE291003D375B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		268803B222DDE292003D375B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		268803B522DDE292003D375B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -70,7 +73,11 @@
 		268803E922DDE366003D375B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		268803F022DE010A003D375B /* Enums+Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enums+Service.swift"; sourceTree = "<group>"; };
 		268803F222DE3B01003D375B /* BaseDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataManager.swift; sourceTree = "<group>"; };
-		268803F522DE3CCE003D375B /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		268803F522DE3CCE003D375B /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		268803FF22DE4E7F003D375B /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		2688040022DE4EC5003D375B /* PlayerViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModels.swift; sourceTree = "<group>"; };
+		2688040222DE4EF3003D375B /* ViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModels.swift; sourceTree = "<group>"; };
+		2688040422DE5064003D375B /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,13 +128,11 @@
 		268803AA22DDE291003D375B /* FDJ */ = {
 			isa = PBXGroup;
 			children = (
-				268803F422DE3C82003D375B /* Model */,
-				268803EE22DDE8A8003D375B /* Models */,
+				268803F422DE3C82003D375B /* Modules */,
 				268803E522DDE33E003D375B /* Common */,
 				268803DA22DDE2A8003D375B /* Service */,
 				268803D922DDE2A0003D375B /* Network */,
 				268803AB22DDE291003D375B /* AppDelegate.swift */,
-				268803AD22DDE291003D375B /* ViewController.swift */,
 				268803AF22DDE291003D375B /* Main.storyboard */,
 				268803B222DDE292003D375B /* Assets.xcassets */,
 				268803B422DDE292003D375B /* LaunchScreen.storyboard */,
@@ -184,14 +189,6 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		268803EE22DDE8A8003D375B /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				268803F522DE3CCE003D375B /* Team.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		268803EF22DE00FA003D375B /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,11 +199,81 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
-		268803F422DE3C82003D375B /* Model */ = {
+		268803F422DE3C82003D375B /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				268803F722DE4E0E003D375B /* Home-Search */,
+				268803F822DE4E36003D375B /* Players */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		268803F722DE4E0E003D375B /* Home-Search */ = {
+			isa = PBXGroup;
+			children = (
+				268803FB22DE4E57003D375B /* Model */,
+				268803FA22DE4E52003D375B /* View */,
+				268803F922DE4E4C003D375B /* Presenter */,
+			);
+			path = "Home-Search";
+			sourceTree = "<group>";
+		};
+		268803F822DE4E36003D375B /* Players */ = {
+			isa = PBXGroup;
+			children = (
+				268803FD22DE4E5E003D375B /* Model */,
+				268803FC22DE4E5E003D375B /* View */,
+				268803FE22DE4E5E003D375B /* Presenter */,
+			);
+			path = Players;
+			sourceTree = "<group>";
+		};
+		268803F922DE4E4C003D375B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2688040422DE5064003D375B /* HomePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		268803FA22DE4E52003D375B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				268803AD22DDE291003D375B /* HomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		268803FB22DE4E57003D375B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				268803F522DE3CCE003D375B /* Models.swift */,
+				2688040222DE4EF3003D375B /* ViewModels.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		268803FC22DE4E5E003D375B /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		268803FD22DE4E5E003D375B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				268803FF22DE4E7F003D375B /* Player.swift */,
+				2688040022DE4EC5003D375B /* PlayerViewModels.swift */,
+			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		268803FE22DE4E5E003D375B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,18 +409,21 @@
 			files = (
 				268803E022DDE2DB003D375B /* APIProtocol.swift in Sources */,
 				268803E122DDE2DB003D375B /* JSONParser.swift in Sources */,
-				268803F622DE3CCE003D375B /* Team.swift in Sources */,
+				268803F622DE3CCE003D375B /* Models.swift in Sources */,
 				268803F122DE010A003D375B /* Enums+Service.swift in Sources */,
 				268803E422DDE30D003D375B /* DataManager.swift in Sources */,
-				268803AE22DDE291003D375B /* ViewController.swift in Sources */,
+				268803AE22DDE291003D375B /* HomeViewController.swift in Sources */,
 				268803AC22DDE291003D375B /* AppDelegate.swift in Sources */,
 				268803EC22DDE366003D375B /* Protocols.swift in Sources */,
 				268803EB22DDE366003D375B /* Enums+Error.swift in Sources */,
 				268803E222DDE2DB003D375B /* APIService.swift in Sources */,
 				268803EA22DDE366003D375B /* Enums.swift in Sources */,
+				2688040522DE5064003D375B /* HomePresenter.swift in Sources */,
 				268803F322DE3B01003D375B /* BaseDataManager.swift in Sources */,
+				2688040122DE4EC5003D375B /* PlayerViewModels.swift in Sources */,
 				268803ED22DDE366003D375B /* Extensions.swift in Sources */,
 				268803DF22DDE2DB003D375B /* APIClient.swift in Sources */,
+				2688040322DE4EF3003D375B /* ViewModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

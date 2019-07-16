@@ -26,10 +26,9 @@ extension APIProtocol {
         let urlComponents = urlStr.appendingPathComponent(endpoint)
         guard var components = URLComponents(url: urlComponents, resolvingAgainstBaseURL: false) else { throw ErrorHandler.encodingError }
         components.queryItems = queryItems
-        // encoded URL
-        guard let url = components.url,
-            let encodedURL = url.encode()
-            else { throw ErrorHandler.invalidRequest }
+        
+        //URL
+        guard let url = components.url else { throw ErrorHandler.invalidRequest }
         return URLRequest(url: url)
     }
 }

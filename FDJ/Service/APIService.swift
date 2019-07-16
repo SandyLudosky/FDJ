@@ -8,46 +8,231 @@
 
 import Foundation
 
+
+struct API {
+    static let key = "APIKEY"
+}
 public enum APIService: APIProtocol {
-    case login([String : Any]), me(String), download(String, String) //to download media
+    case search(Search), list(List), lookup(Lookup), schedule(Schedule), image(Image), livescore(LiveScore)
     
     public var baseURL: String {
-        return "https://us-central1-student-pop-technical-test.cloudfunctions.net/api"
-    }
-    public var httpType: RequestType {
-        switch self {
-        case .login: return .post
-        case .me, .download: return .get
+        switch  self {
+        case .search(let endpoint):
+            switch endpoint {
+                
+            case .team(let name, let shortcode):
+                if let _ = name {
+                    return "https://www.thesportsdb.com/api/v1/json/1/"
+                }
+                if let _ = shortcode {
+                   return "https://www.thesportsdb.com/api/v1/json/\(API.key)/"
+                }
+            case .player, .event: return "https://www.thesportsdb.com/api/v1/json/1/"
+            }
+        case .list, .lookup, .schedule, .image, .livescore: return "https://www.thesportsdb.com/api/v1/json/1/"
+         
         }
-    }
-    public var endpoint: String? {
-        switch self {
-        case .login: return "login"
-        case .me:  return "me"
-        case .download(_, let url): return url
-        }
+        return ""
     }
     
+    public var endpoint: String {
+        switch self {
+       
+        case .search(let endpoint):
+            switch endpoint {
+            case .team(_, _): return "searchteams.php"
+            case .player(_, _): return "searchplayers.php"
+            case .event(let name, let file):
+                if let _ = name {
+                    return "searchevents.php"
+                }
+                
+                if let _ = file {
+                    return "searchfilename.php"
+                }
+               
+            }
+        case .list(let endpoint):
+            switch endpoint {
+                
+            case .allSports: return "all_sports.php"
+            case .allLeagues: return "all_leagues.php"
+            case .allSeasons: return "search_all_seasons.php"
+            case .allTeams(_): return "search_all_teams.php" // refacto
+            case .allTeamsDetails(_):  return "lookup_all_teams.php"
+            case .allPlayers(_): return "lookup_all_players.php"
+            case .allLoves(_): return "searchloves.php"
+            }
+        case .lookup(let endpoint):
+            switch endpoint {
+            case .leagueDetails: return "lookupleague.php"
+            case .teamDetails: return "lookupteam.php"
+            case .playersDetails: return "lookupplayer.php"
+            case .eventDetails: return "lookupevent.php"
+            case .honours: return "lookuphonors.php"
+            case .formerTeams: return "lookupformerteams.php"
+            case .contract: return "lookupcontracts.php"
+            case .tvEvent: return "lookuptv.php"
+            case .table: return "lookuptable.php"
+            }
+        case .schedule(let endpoint): //refacto
+            switch endpoint {
+            case .next5events: return "eventsnext.php"
+            case .next15events: return "eventsnextleague.php"
+            case .last5events: return "eventslast.php"
+            case .last15events: return "eventspastleague.php"
+            case .specificEvent: return "eventsround.php"
+            case .tvEvents: return "eventstv.php"
+            }
+        case .image(let endpoint):
+            switch endpoint {
+            case .original(let url): return url
+            case .preview(let url): return "\(url)/preview"
+            }
+        case .livescore(let endpoint):
+            switch endpoint {
+                
+            case .soccer: return "latestsoccer.php"
+            case .golf: return "latestgolf.php"
+            case .basket: return "atestbasketball.php"
+            case .football: return  "latestamericanfootball.php"
+            }
+
+        }
+        return ""
+    }
+    
+    public var key: String {
+        switch self {
+            
+        case .search(let endpoint):
+            switch endpoint {
+            case .team(_, _): return "team"
+            case .player(_, _): return "player"
+            case .event(_, _): return "event"
+            }
+        case .list(let endpoint):
+            switch endpoint {
+                
+            case .allSports: return "sports"
+            case .allLeagues: return "leagues"
+            case .allSeasons(_): return "season"
+            case .allTeams, .allTeamsDetails: return "teams"
+            case .allPlayers(_): return "player"
+            case .allLoves(_): return "players"
+
+            }
+        case .lookup(_):
+            return ""
+        case .schedule(_):
+            return ""
+        case .image(_):
+            return ""
+        case .livescore(_):
+            return ""
+        }
+    }
+    public var httpType: RequestType {
+        return .get
+    }
+
     public var parameters: [String : Any]? {
         switch self {
-        case .login(let credentials): return credentials
-        case .me(let token), .download(let token,_ ):  return ["token": token]
+       
+        case .search(let endpoint):
+            switch endpoint {
+                
+            case .team(let name, let shortcode):
+                if let team = name {
+                    return ["t": team]
+                }
+                if let code = shortcode {
+                    return ["sname": code]
+                }
+            case .player(let team, let name):
+                if let t = team {
+                    return ["t": t]
+                }
+                
+                if let p = name {
+                    return ["p": p]
+                }
+            case .event(let name, let file):
+                if let e = name {
+                    return ["e": e]
+                }
+                
+                if let f = file {
+                    return ["e": f]
+                }
+            }
+        case .list(let endpoint):
+            switch endpoint {
+                
+            case .allSports, .allLeagues: return nil //refacto all leagues in country
+            case .allSeasons(let id): return ["id": id]
+            case .allTeams(let name): return ["l": name]
+            case .allTeamsDetails(let id): return ["id": id]
+            case .allPlayers(let id): return ["id": id]
+            case .allLoves(let user): return ["u": user]
+            }
+        case .lookup(let endpoint):
+            switch endpoint {
+                
+            case .leagueDetails(let id),
+                 .teamDetails(let id),
+                 .playersDetails(let id),
+                 .eventDetails(let id),
+                 .honours(let id),
+                 .formerTeams(let id),
+                 .contract(let id),
+                 .tvEvent(let id): return ["id": id]
+            case .table(let leagueId, let season):  return ["l": leagueId, "s": season]
+            }
+        case .schedule(let endpoint):
+            switch endpoint {
+                
+            case .next5events(let id),
+                 .next15events(let id),
+                 .last5events(let id),
+                 .last15events(let id): return ["id": id]
+            case .specificEvent(let id, let round, let season): return ["id": id, "r": round, "s": season]
+            case .tvEvents(let date, let sport):
+                if let s = sport {
+                    return ["d": date, "s": s]
+                }
+               return ["d": date]
+            }
+        case .image(let endpoint):
+            switch endpoint {
+                case .original, .preview: return nil
+            }
+        case .livescore(let endpoint):
+            switch endpoint {
+            case .soccer, .golf, .basket, .football: return nil
+            }
         }
+        return nil
     }
 }
 
 extension APIService {
     public var request: URLRequest? {
         var queryItems = [URLQueryItem]()
-        switch self {
-            case .login(_): break
-            case .me(let token), .download(let token,_ ): queryItems.append(URLQueryItem(name: "token", value: token))
+        if let params = parameters {
+            queryItems += add(params)
         }
-        guard let params = parameters else { return nil }
-        guard let urlRequest = try? asURLRequest(for: httpType, with: params, queryItems: queryItems) else {
+        guard let request = try? asURLRequest(queryItems: queryItems) else {
             return nil
         }
+        return request
+    }
     
-        return urlRequest
+    private func add(_ params: [String : Any]) ->  [URLQueryItem] {
+        var queryItems = [URLQueryItem]()
+        for (key, value) in params {
+            queryItems.append(URLQueryItem(name: key, value: value as? String))
+        }
+        return queryItems
     }
 }

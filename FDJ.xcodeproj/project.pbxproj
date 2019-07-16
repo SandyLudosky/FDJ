@@ -23,6 +23,9 @@
 		268803EB22DDE366003D375B /* Enums+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803E722DDE366003D375B /* Enums+Error.swift */; };
 		268803EC22DDE366003D375B /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803E822DDE366003D375B /* Protocols.swift */; };
 		268803ED22DDE366003D375B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803E922DDE366003D375B /* Extensions.swift */; };
+		268803F122DE010A003D375B /* Enums+Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803F022DE010A003D375B /* Enums+Service.swift */; };
+		268803F322DE3B01003D375B /* BaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803F222DE3B01003D375B /* BaseDataManager.swift */; };
+		268803F622DE3CCE003D375B /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803F522DE3CCE003D375B /* Team.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,9 @@
 		268803E722DDE366003D375B /* Enums+Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Enums+Error.swift"; sourceTree = "<group>"; };
 		268803E822DDE366003D375B /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		268803E922DDE366003D375B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		268803F022DE010A003D375B /* Enums+Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enums+Service.swift"; sourceTree = "<group>"; };
+		268803F222DE3B01003D375B /* BaseDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataManager.swift; sourceTree = "<group>"; };
+		268803F522DE3CCE003D375B /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,8 @@
 		268803AA22DDE291003D375B /* FDJ */ = {
 			isa = PBXGroup;
 			children = (
+				268803F422DE3C82003D375B /* Model */,
+				268803EE22DDE8A8003D375B /* Models */,
 				268803E522DDE33E003D375B /* Common */,
 				268803DA22DDE2A8003D375B /* Service */,
 				268803D922DDE2A0003D375B /* Network */,
@@ -160,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				268803DE22DDE2DB003D375B /* APIService.swift */,
+				268803F222DE3B01003D375B /* BaseDataManager.swift */,
 				268803E322DDE30D003D375B /* DataManager.swift */,
 			);
 			path = Service;
@@ -168,12 +177,36 @@
 		268803E522DDE33E003D375B /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				268803E622DDE366003D375B /* Enums.swift */,
-				268803E722DDE366003D375B /* Enums+Error.swift */,
+				268803EF22DE00FA003D375B /* Enums */,
 				268803E922DDE366003D375B /* Extensions.swift */,
 				268803E822DDE366003D375B /* Protocols.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		268803EE22DDE8A8003D375B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		268803EF22DE00FA003D375B /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				268803E622DDE366003D375B /* Enums.swift */,
+				268803E722DDE366003D375B /* Enums+Error.swift */,
+				268803F022DE010A003D375B /* Enums+Service.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		268803F422DE3C82003D375B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				268803F522DE3CCE003D375B /* Team.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,6 +342,8 @@
 			files = (
 				268803E022DDE2DB003D375B /* APIProtocol.swift in Sources */,
 				268803E122DDE2DB003D375B /* JSONParser.swift in Sources */,
+				268803F622DE3CCE003D375B /* Team.swift in Sources */,
+				268803F122DE010A003D375B /* Enums+Service.swift in Sources */,
 				268803E422DDE30D003D375B /* DataManager.swift in Sources */,
 				268803AE22DDE291003D375B /* ViewController.swift in Sources */,
 				268803AC22DDE291003D375B /* AppDelegate.swift in Sources */,
@@ -316,6 +351,7 @@
 				268803EB22DDE366003D375B /* Enums+Error.swift in Sources */,
 				268803E222DDE2DB003D375B /* APIService.swift in Sources */,
 				268803EA22DDE366003D375B /* Enums.swift in Sources */,
+				268803F322DE3B01003D375B /* BaseDataManager.swift in Sources */,
 				268803ED22DDE366003D375B /* Extensions.swift in Sources */,
 				268803DF22DDE2DB003D375B /* APIClient.swift in Sources */,
 			);

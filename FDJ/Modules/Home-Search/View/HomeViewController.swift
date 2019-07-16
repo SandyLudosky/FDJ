@@ -10,22 +10,24 @@ import UIKit
 
 class HomeViewController: UIViewController, ViewProtocol {
     @IBOutlet weak var collectionView: UICollectionView!
+    let searchController = UISearchController(searchResultsController: nil)
+    var searchActive: Bool = false
     var presenter: HomePresenter?
     var dataSource = TeamDataSource(items: [])
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        show()
     }
     
     func setup() {
         presenter = HomePresenter(with: self)
         collectionView.dataSource = dataSource
         collectionView.register(UINib(nibName: TeamCell.identifier, bundle: nil), forCellWithReuseIdentifier: TeamCell.identifier)
+        configureSearchBar()
     }
     
     func show() {
-        presenter?.fetch(with: .list(.allTeams("English Premier League")))
+        presenter?.fetch(with: .list(.allTeams(seachBarText)))
     }
     
     func startLoading() {}
@@ -48,6 +50,62 @@ extension HomeViewController {
     }
     func didFail(with error: Error) {
         print(error.localizedDescription)
+    }
+}
+
+//MARK: UISearchBarDelegate & UISearchResultsUpdating & UISearchControllerDelegate
+extension HomeViewController: UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
+    var isSeachBarEmpty: Bool {
+        return searchController.searchBar.text == ""
+    }
+    var seachBarText: String {
+        guard let text = searchController.searchBar.text else { return "" }
+        return text
+    }
+    
+    private func configureSearchBar() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(HomeViewController.dismissSearchResultsController))
+ 
+        //navigationItem.rightBarButtonItem = nil
+        definesPresentationContext = true
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.sizeToFit()
+        searchController.searchBar.becomeFirstResponder()
+        searchController.searchBar.placeholder = "Search ..."
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.delegate = self
+        
+        if #available(iOS 9.1, *) {
+            searchController.obscuresBackgroundDuringPresentation = false
+        } else {
+            // Fallback on earlier versions
+            searchController.dimsBackgroundDuringPresentation = false
+        }
+        
+        navigationItem.titleView = searchController.searchBar
+        navigationItem.rightBarButtonItem = nil
+       
+    }
+    
+    private func updateSearchResults() {
+        show()
+        searchActive = true
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        updateSearchResults()
+    }
+    @objc func dismissSearchResultsController(_ sender: UIBarButtonItem) {
+        searchActive = false
+        self.dismiss(animated: true, completion: nil)
+        show()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        show()
     }
 }
 

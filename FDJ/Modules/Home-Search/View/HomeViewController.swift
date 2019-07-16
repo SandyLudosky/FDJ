@@ -33,6 +33,13 @@ class HomeViewController: UIViewController, ViewProtocol {
     func stopLoading() {}
 }
 
+extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        performSegue(withIdentifier: "goToPlayers", sender: cell)
+    }
+}
+
 extension HomeViewController {
     func didSucceed(with data: [Any]) {
         guard let teams = data as? [Team] else { return }
@@ -41,5 +48,21 @@ extension HomeViewController {
     }
     func didFail(with error: Error) {
         print(error.localizedDescription)
+    }
+}
+
+// MARK: - Navigation
+extension HomeViewController{
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToPlayers" {
+            guard let playersVC = segue.destination as? PlayersViewController else {
+                return
+            }
+            if let cell = sender as? TeamCell, let indexPath = self.collectionView.indexPath(for: cell) {
+                let team = dataSource.result(at: indexPath)
+                playersVC.team = team
+            }
+        }
+       
     }
 }

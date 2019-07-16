@@ -29,6 +29,7 @@ extension APIProtocol {
         
         //URL
         guard let url = components.url else { throw ErrorHandler.invalidRequest }
+        print(url)
         return URLRequest(url: url)
     }
 }

@@ -12,6 +12,7 @@ import SDWebImage
 class TeamCell: UICollectionViewCell {
     @IBOutlet weak var badgeImageView: UIImageView!
     static let identifier = "TeamCell"
+   
     func configure(with viewModel: TeamViewModel) {
         badgeImageView.sd_setImage(with: viewModel.badge)
     }

@@ -23,7 +23,7 @@ class TeamDataSource: NSObject {
         return items[indexPath.row]
     }
 }
-// MARK: - UITableDataSource
+// MARK: - UICollectionViewDataSource
 extension TeamDataSource: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count

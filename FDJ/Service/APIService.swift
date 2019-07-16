@@ -27,7 +27,7 @@ public enum APIService: APIProtocol {
                 if let _ = shortcode {
                    return "https://www.thesportsdb.com/api/v1/json/\(API.key)/"
                 }
-            case .player, .event: return "https://www.thesportsdb.com/api/v1/json/1/"
+            case .players, .event: return "https://www.thesportsdb.com/api/v1/json/1/"
             }
         case .list, .lookup, .schedule, .image, .livescore: return "https://www.thesportsdb.com/api/v1/json/1/"
          
@@ -41,7 +41,7 @@ public enum APIService: APIProtocol {
         case .search(let endpoint):
             switch endpoint {
             case .team(_, _): return "searchteams.php"
-            case .player(_, _): return "searchplayers.php"
+            case .players(_, _): return "searchplayers.php"
             case .event(let name, let file):
                 if let _ = name {
                     return "searchevents.php"
@@ -108,7 +108,7 @@ public enum APIService: APIProtocol {
         case .search(let endpoint):
             switch endpoint {
             case .team(_, _): return "team"
-            case .player(_, _): return "player"
+            case .players(_, _): return "player"
             case .event(_, _): return "event"
             }
         case .list(let endpoint):
@@ -149,7 +149,7 @@ public enum APIService: APIProtocol {
                 if let code = shortcode {
                     return ["sname": code]
                 }
-            case .player(let team, let name):
+            case .players(let team, let name):
                 if let t = team {
                     return ["t": t]
                 }

@@ -10,7 +10,7 @@ import Foundation
 
 public enum Search {
     case team(_ name: String?,_ shortcode: String?)
-    case player(_ team: String?,_ name: String?)
+    case players(_ team: String?,_ name: String?)
     case event(_ name: String?,_ file: String?)
 }
 

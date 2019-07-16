@@ -10,25 +10,25 @@ import XCTest
 @testable import FDJ
 
 class FDJTests: XCTestCase {
-
+    var homePresenter: HomePresenter? = nil
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        let view = HomeViewController()
+        homePresenter = HomePresenter(with: view)
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testDataShouldNotBeNil() {
+        homePresenter?.dataManager?.get(Team.self, for: .list(.allTeams("England Premier League")), completion: { results in
+            switch results {
+                
+            case .success(let data): XCTAssertNil(data, "data should not be nil")
+            case .failure(let error): XCTAssertNil(error, "error should be nil")
+            }
+        })
     }
 
 }

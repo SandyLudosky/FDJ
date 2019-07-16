@@ -26,6 +26,6 @@ struct PlayerViewModel {
         self.name = player.strPlayer
         self.position = player.strPosition
         self.dob = player.dateBorn
-        self.salary = "price: \(player.strSigning)"
+        self.salary = player.strSigning == "" ? "price: Not Specified" : "price: \(player.strSigning)"
     }
 }

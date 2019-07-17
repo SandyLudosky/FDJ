@@ -65,7 +65,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.84057253075957317" green="0.83925855295254848" blue="0.86221047232188086" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.95055705739999996" green="0.94907115249999996" blue="0.97502621069999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="nzK-rp-Nrf" secondAttribute="bottom" constant="10" id="Hle-So-gDI"/>
                             <constraint firstItem="nzK-rp-Nrf" firstAttribute="top" secondItem="OBN-R4-aOK" secondAttribute="top" constant="10" id="LZF-go-SpS"/>

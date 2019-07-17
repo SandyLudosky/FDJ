@@ -11,7 +11,6 @@ import Foundation
 struct PlayerViewModel:ViewModelProtocol  {
  
     typealias T = Player
-    
     var id: String
     var team: String
     var teamId: String
@@ -25,7 +24,7 @@ struct PlayerViewModel:ViewModelProtocol  {
         self.id = type.idPlayer ?? ""
         self.team = type.strTeam ?? ""
         self.teamId = type.idTeam ?? ""
-        self.thumb = URL(string: type.strThumb ?? "") 
+        self.thumb = type.strCutout != nil ? URL(string: type.strCutout ?? "") :  URL(string: type.strThumb ?? "")
         self.name = type.strPlayer ?? ""
         self.position = type.strPosition ?? ""
         self.dob = type.dateBorn ?? ""

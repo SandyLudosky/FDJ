@@ -103,8 +103,9 @@ public enum APIService: APIProtocol {
     }
     
     public var key: String {
+    
         switch self {
-            
+
         case .search(let endpoint):
             switch endpoint {
             case .team(_, _): return "team"

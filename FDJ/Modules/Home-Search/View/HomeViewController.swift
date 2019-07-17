@@ -57,8 +57,8 @@ extension HomeViewController {
         collectionView.reloadData()
     }
 
-    func didFail(with error: Error) {
-        print(error.localizedDescription)
+    func didFail(with error: ErrorHandler) {
+         view?.makeToast(message: error.description ?? "No Results", duration: 1.0, position: .bottom, with: .black)
     }
 }
 

@@ -48,7 +48,7 @@ extension PlayersViewController {
         tableView.reloadData()
     }
 
-    func didFail(with error: Error) {
-        print(error.localizedDescription)
+    func didFail(with error: ErrorHandler) {
+        view.makeToast(message: error.description ?? "", duration: 2.0, position: .bottom, with: .black)
     }
 }

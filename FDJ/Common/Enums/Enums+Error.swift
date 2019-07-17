@@ -30,6 +30,7 @@ public enum ErrorHandler: Error {
     case responseUnsuccessful
     case responseFailure(StatusCode, statusCode: Int)
     case jsonParsingFailure
+    case resultNull
     case invalidURL
     case noNetwork
     case wrongCredentials
@@ -48,6 +49,7 @@ public enum ErrorHandler: Error {
         case .invalidRequest: return NSLocalizedString("Invalid Request", comment: "")
         case .noNetwork: return NSLocalizedString("No Network", comment: "")
         case .wrongCredentials: return NSLocalizedString("Wrong Credentials", comment: "")
+        case .resultNull: return NSLocalizedString("No Results", comment: "")
         }
     }
 }

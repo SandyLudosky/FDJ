@@ -234,11 +234,8 @@
 		268803E522DDE33E003D375B /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				269910E122DFAB33005B0F90 /* ToastManager.swift */,
-				269910DF22DFA96B005B0F90 /* Reachability.swift */,
+				269910E322DFB095005B0F90 /* Utils */,
 				268803EF22DE00FA003D375B /* Enums */,
-				268803E922DDE366003D375B /* Extensions.swift */,
-				268803E822DDE366003D375B /* Protocols.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -388,6 +385,17 @@
 				269910DC22DF8862005B0F90 /* LivescoreAPIService.swift */,
 			);
 			path = APIServices;
+			sourceTree = "<group>";
+		};
+		269910E322DFB095005B0F90 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				269910E122DFAB33005B0F90 /* ToastManager.swift */,
+				269910DF22DFA96B005B0F90 /* Reachability.swift */,
+				268803E922DDE366003D375B /* Extensions.swift */,
+				268803E822DDE366003D375B /* Protocols.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		4DF160F8D5FA19B54B9AC052 /* Frameworks */ = {

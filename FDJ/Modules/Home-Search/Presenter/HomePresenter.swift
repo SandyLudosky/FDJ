@@ -33,7 +33,12 @@ class HomePresenter: PresenterProtocol {
                     self.view?.didSucceed(with: viewModels)
                     self.view?.stopLoading()
                 }
-            case .failure(let error): self.view?.didFail(with: error)
+            case .failure(let error):
+                DispatchQueue.main.async {
+                     self.view?.didFail(with: error)
+                     self.view?.stopLoading()
+                }
+               
             }
         })
     }

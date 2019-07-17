@@ -27,6 +27,10 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="uxC-t4-BuQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </activityIndicatorView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="teamCell" id="C8G-An-lf7" customClass="TeamCell" customModule="FDJ" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
@@ -57,6 +61,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="eif-Be-jwN"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="uxC-t4-BuQ" id="NHh-1g-kfA"/>
                         <outlet property="collectionView" destination="qgI-O9-AI2" id="EL6-Om-WBS"/>
                     </connections>
                 </viewController>
@@ -75,6 +80,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HIJ-0Y-REi">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="dY4-yF-9za">
+                                    <rect key="frame" x="0.0" y="128" width="414" height="20"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </activityIndicatorView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlayerCell" id="CBt-tf-F1T" customClass="PlayerCell" customModule="FDJ" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="100"/>
@@ -101,6 +110,7 @@
                         <viewLayoutGuide key="safeArea" id="y7k-nS-gAi"/>
                     </view>
                     <connections>
+                        <outlet property="indicator" destination="dY4-yF-9za" id="VqL-QU-iEF"/>
                         <outlet property="tableView" destination="HIJ-0Y-REi" id="PVe-2c-V3i"/>
                     </connections>
                 </viewController>

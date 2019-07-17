@@ -9,19 +9,18 @@
 import Foundation
 
 protocol ViewProtocol {
-    //associatedtype T
-    //var presenter: PresenterProtocol? { get set }
+    associatedtype VM 
     func setup()
     func show()
     func startLoading()
     func stopLoading()
-    func didSucceed(with data: [Any])
+    func didSucceed(with data: [VM])
     func didFail(with error: Error)
   
 }
 protocol PresenterProtocol {
-    associatedtype T
-    var view: ViewProtocol? { get set }
-    init(with view: ViewProtocol)
+    associatedtype V
+    var view: V? { get set }
+    init(with view: V)
     func fetch(with service: APIService)
 }

@@ -10,6 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController, ViewProtocol {
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     let searchController = UISearchController(searchResultsController: nil)
     var searchActive: Bool = false
     var presenter: HomePresenter?
@@ -24,15 +25,22 @@ class HomeViewController: UIViewController, ViewProtocol {
         collectionView.dataSource = dataSource
         collectionView.register(UINib(nibName: TeamCell.identifier, bundle: nil), forCellWithReuseIdentifier: TeamCell.identifier)
         configureSearchBar()
+        activityIndicator.isHidden = true
     }
     
     func show() {
         presenter?.fetch(with: .list(.allTeams(seachBarText)))
     }
     
-    func startLoading() {}
+    func startLoading() {
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = false
+    }
     
-    func stopLoading() {}
+    func stopLoading() {
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
@@ -43,11 +51,12 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
 }
 
 extension HomeViewController {
-    func didSucceed(with data: [Any]) {
-        guard let teams = data as? [Team] else { return }
-        dataSource.update(with: teams)
+    
+    func didSucceed(with data: [TeamViewModel]) {
+        dataSource.update(with: data)
         collectionView.reloadData()
     }
+
     func didFail(with error: Error) {
         print(error.localizedDescription)
     }

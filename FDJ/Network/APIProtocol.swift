@@ -33,3 +33,24 @@ extension APIProtocol {
         return URLRequest(url: url)
     }
 }
+
+extension APIProtocol {
+    public var request: URLRequest? {
+        var queryItems = [URLQueryItem]()
+        if let params = parameters {
+            queryItems += add(params)
+        }
+        guard let request = try? asURLRequest(queryItems: queryItems) else {
+            return nil
+        }
+        return request
+    }
+    
+    private func add(_ params: [String : Any]) ->  [URLQueryItem] {
+        var queryItems = [URLQueryItem]()
+        for (key, value) in params {
+            queryItems.append(URLQueryItem(name: key, value: value as? String))
+        }
+        return queryItems
+    }
+}

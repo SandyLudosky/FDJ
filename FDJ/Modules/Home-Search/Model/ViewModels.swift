@@ -8,28 +8,37 @@
 
 import Foundation
 
-struct LeagueViewModel {
+protocol ViewModelProtocol {
+    associatedtype T
+    init(with type: T)
+}
+
+struct LeagueViewModel: ViewModelProtocol {
+    typealias T = League
+    
     let id: String
     let league: String
     let sport: String
     let alternate: String
     
-    init(with league: League) {
-        self.id = league.idLeague
-        self.league = league.strLeague
-        self.sport = league.strSport
-        self.alternate = league.strLeagueAlternate
+    init(with type: League) {
+        self.id = type.idLeague
+        self.league = type.strLeague
+        self.sport = type.strSport
+        self.alternate = type.strLeagueAlternate
     }
 }
 
-struct TeamViewModel {
+struct TeamViewModel: ViewModelProtocol {
+    typealias T = Team
+    
     let id: String
     let name: String
     let badge: URL?
     
-    init(with team: Team) {
-        self.id = team.idTeam
-        self.name = team.strTeam
-        self.badge = URL(string: team.strTeamBadge) 
+    init(with type: Team) {
+        self.id = type.idTeam
+        self.name = type.strTeam
+        self.badge = URL(string: type.strTeamBadge)
     }
 }

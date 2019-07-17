@@ -11,10 +11,10 @@ import Foundation
 
 class PlayersPresenter: PresenterProtocol {
     var dataManager: DataManager?
-    var view: ViewProtocol?
+    var view: PlayersViewController?
     typealias T = Player
     
-    required init(with view: ViewProtocol) {
+    required init(with view: PlayersViewController) {
         self.view = view
         dataManager = DataManager()
     }
@@ -24,9 +24,12 @@ class PlayersPresenter: PresenterProtocol {
         dataManager?.get(Player.self, for: service, completion: { results in
             switch results {
             case .success(let collection):
-                guard let teams = collection as? [Player] else { return }
+                guard let players = collection as? [Player] else { return }
+                let viewModels = players.map({ player -> PlayerViewModel in
+                    return PlayerViewModel(with: player)
+                })
                 DispatchQueue.main.async {
-                    self.view?.didSucceed(with: teams)
+                    self.view?.didSucceed(with: viewModels)
                     self.view?.stopLoading()
                 }
             case .failure(let error): self.view?.didFail(with: error)

@@ -10,16 +10,16 @@ import Foundation
 import UIKit
 
 class TeamDataSource: NSObject {
-    var items: [Team]
-    init(items: [Team]) {
+    var items: [TeamViewModel]
+    init(items: [TeamViewModel]) {
         self.items = items
         super.init()
     }
     // MARK: - Helper
-    func update(with results: [Team]) {
+    func update(with results: [TeamViewModel]) {
         items = results
     }
-    func result(at indexPath: IndexPath) -> Team {
+    func result(at indexPath: IndexPath) -> TeamViewModel {
         return items[indexPath.row]
     }
 }
@@ -34,8 +34,7 @@ extension TeamDataSource: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let team = items[indexPath.row]
-        let viewModel = TeamViewModel(with: team)
-        cell.configure(with: viewModel)
+        cell.configure(with: team)
         return cell
     }
 }

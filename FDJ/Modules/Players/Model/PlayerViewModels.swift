@@ -8,7 +8,10 @@
 
 import Foundation
 
-struct PlayerViewModel {
+struct PlayerViewModel:ViewModelProtocol  {
+ 
+    typealias T = Player
+    
     var id: String
     var team: String
     var teamId: String
@@ -18,14 +21,14 @@ struct PlayerViewModel {
     var dob: String
     var salary: String
     
-    init(with player: Player) {
-        self.id = player.idPlayer
-        self.team = player.strTeam
-        self.teamId = player.idTeam
-        self.thumb = URL(string: player.strThumb)
-        self.name = player.strPlayer
-        self.position = player.strPosition
-        self.dob = player.dateBorn
-        self.salary = player.strSigning == "" ? "price: Not Specified" : "price: \(player.strSigning)"
+    init(with type: Player) {
+        self.id = type.idPlayer
+        self.team = type.strTeam
+        self.teamId = type.idTeam
+        self.thumb = URL(string: type.strThumb)
+        self.name = type.strPlayer
+        self.position = type.strPosition
+        self.dob = type.dateBorn
+        self.salary = type.strSigning == "" ? "price: Not Specified" : "price: \(type.strSigning)"
     }
 }

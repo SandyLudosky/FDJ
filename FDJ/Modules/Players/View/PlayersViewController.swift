@@ -9,8 +9,9 @@
 import UIKit
 
 class PlayersViewController: UIViewController, ViewProtocol {
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
-    var team: Team?
+    var team: TeamViewModel?
     var presenter: PlayersPresenter?
     var dataSource = PlayersDataSource(items: [])
     
@@ -23,28 +24,30 @@ class PlayersViewController: UIViewController, ViewProtocol {
         tableView.dataSource = dataSource
         tableView.register(UINib(nibName: PlayerCell.identifier, bundle: nil), forCellReuseIdentifier: PlayerCell.identifier)
         presenter = PlayersPresenter(with: self)
-        self.title = team?.strTeam
+        self.title = team?.name
     }
     
     func show() {
-        presenter?.fetch(with: .search(.players(team?.strTeam, nil)))
+        presenter?.fetch(with: .search(.players(team?.name, nil)))
     }
     
     func startLoading() {
-        print("loading")
+        indicator.startAnimating()
+        indicator.isHidden = false
     }
     
     func stopLoading() {
-         print("stop loading")
+        indicator.stopAnimating()
+        indicator.isHidden = true
     }
 }
 
 extension PlayersViewController {
-    func didSucceed(with data: [Any]) {
-        guard let players = data as? [Player] else { return }
-        dataSource.update(with: players)
+    func didSucceed(with data: [PlayerViewModel]) {
+        dataSource.update(with: data)
         tableView.reloadData()
     }
+
     func didFail(with error: Error) {
         print(error.localizedDescription)
     }

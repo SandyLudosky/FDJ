@@ -38,6 +38,12 @@
 		2688041A22DE69F8003D375B /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2688041822DE69F8003D375B /* PlayerCell.swift */; };
 		2688041B22DE69F8003D375B /* PlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2688041922DE69F8003D375B /* PlayerCell.xib */; };
 		2688041D22DE70CC003D375B /* PlayersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2688041C22DE70CC003D375B /* PlayersPresenter.swift */; };
+		269910D222DF7EAA005B0F90 /* SearchAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269910D122DF7EAA005B0F90 /* SearchAPIService.swift */; };
+		269910D422DF8031005B0F90 /* ListAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269910D322DF8031005B0F90 /* ListAPIService.swift */; };
+		269910D622DF8139005B0F90 /* LookUpAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269910D522DF8139005B0F90 /* LookUpAPIService.swift */; };
+		269910D822DF82DE005B0F90 /* ScheduleAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269910D722DF82DE005B0F90 /* ScheduleAPIService.swift */; };
+		269910DB22DF86E3005B0F90 /* ImageAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269910DA22DF86E3005B0F90 /* ImageAPIService.swift */; };
+		269910DD22DF8862005B0F90 /* LivescoreAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269910DC22DF8862005B0F90 /* LivescoreAPIService.swift */; };
 		59A61D6BE22C18379A33D040 /* Pods_FDJ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EB9143221A19B32D6254AB /* Pods_FDJ.framework */; };
 		5BA8442D8EB621760B56CE7D /* Pods_FDJTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6865DD17E7C2B38921442199 /* Pods_FDJTests.framework */; };
 		9B8796311CC154C971C6DBE1 /* Pods_FDJUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BCC1B6016CD0C2244069380 /* Pods_FDJUITests.framework */; };
@@ -99,6 +105,12 @@
 		2688041822DE69F8003D375B /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 		2688041922DE69F8003D375B /* PlayerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerCell.xib; sourceTree = "<group>"; };
 		2688041C22DE70CC003D375B /* PlayersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersPresenter.swift; sourceTree = "<group>"; };
+		269910D122DF7EAA005B0F90 /* SearchAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIService.swift; sourceTree = "<group>"; };
+		269910D322DF8031005B0F90 /* ListAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAPIService.swift; sourceTree = "<group>"; };
+		269910D522DF8139005B0F90 /* LookUpAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookUpAPIService.swift; sourceTree = "<group>"; };
+		269910D722DF82DE005B0F90 /* ScheduleAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleAPIService.swift; sourceTree = "<group>"; };
+		269910DA22DF86E3005B0F90 /* ImageAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIService.swift; sourceTree = "<group>"; };
+		269910DC22DF8862005B0F90 /* LivescoreAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivescoreAPIService.swift; sourceTree = "<group>"; };
 		2BCC1B6016CD0C2244069380 /* Pods_FDJUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FDJUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E8215926079CBA47073AA87 /* Pods-FDJ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FDJ.debug.xcconfig"; path = "Target Support Files/Pods-FDJ/Pods-FDJ.debug.xcconfig"; sourceTree = "<group>"; };
 		5BC822453E46D4920CA2A1A4 /* Pods-FDJ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FDJ.release.xcconfig"; path = "Target Support Files/Pods-FDJ/Pods-FDJ.release.xcconfig"; sourceTree = "<group>"; };
@@ -166,7 +178,7 @@
 				2688040622DE578C003D375B /* Views */,
 				268803F422DE3C82003D375B /* Modules */,
 				268803E522DDE33E003D375B /* Common */,
-				268803DA22DDE2A8003D375B /* Service */,
+				268803DA22DDE2A8003D375B /* Services */,
 				268803D922DDE2A0003D375B /* Network */,
 				268803AB22DDE291003D375B /* AppDelegate.swift */,
 				268803AF22DDE291003D375B /* Main.storyboard */,
@@ -205,14 +217,19 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		268803DA22DDE2A8003D375B /* Service */ = {
+		268803DA22DDE2A8003D375B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				269910D922DF8597005B0F90 /* DataManager */,
 				268803DE22DDE2DB003D375B /* APIService.swift */,
-				268803F222DE3B01003D375B /* BaseDataManager.swift */,
-				268803E322DDE30D003D375B /* DataManager.swift */,
+				269910D122DF7EAA005B0F90 /* SearchAPIService.swift */,
+				269910D322DF8031005B0F90 /* ListAPIService.swift */,
+				269910D522DF8139005B0F90 /* LookUpAPIService.swift */,
+				269910D722DF82DE005B0F90 /* ScheduleAPIService.swift */,
+				269910DA22DF86E3005B0F90 /* ImageAPIService.swift */,
+				269910DC22DF8862005B0F90 /* LivescoreAPIService.swift */,
 			);
-			path = Service;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		268803E522DDE33E003D375B /* Common */ = {
@@ -348,6 +365,15 @@
 				2688041922DE69F8003D375B /* PlayerCell.xib */,
 			);
 			path = PlayerCell;
+			sourceTree = "<group>";
+		};
+		269910D922DF8597005B0F90 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				268803F222DE3B01003D375B /* BaseDataManager.swift */,
+				268803E322DDE30D003D375B /* DataManager.swift */,
+			);
+			path = DataManager;
 			sourceTree = "<group>";
 		};
 		4DF160F8D5FA19B54B9AC052 /* Frameworks */ = {
@@ -601,9 +627,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				269910D422DF8031005B0F90 /* ListAPIService.swift in Sources */,
 				2688041322DE68CA003D375B /* Player.swift in Sources */,
 				268803E022DDE2DB003D375B /* APIProtocol.swift in Sources */,
+				269910D822DF82DE005B0F90 /* ScheduleAPIService.swift in Sources */,
 				268803E122DDE2DB003D375B /* JSONParser.swift in Sources */,
+				269910DD22DF8862005B0F90 /* LivescoreAPIService.swift in Sources */,
 				268803F622DE3CCE003D375B /* Models.swift in Sources */,
 				268803F122DE010A003D375B /* Enums+Service.swift in Sources */,
 				2688041A22DE69F8003D375B /* PlayerCell.swift in Sources */,
@@ -612,16 +641,19 @@
 				268803AE22DDE291003D375B /* HomeViewController.swift in Sources */,
 				2688041D22DE70CC003D375B /* PlayersPresenter.swift in Sources */,
 				268803AC22DDE291003D375B /* AppDelegate.swift in Sources */,
+				269910D622DF8139005B0F90 /* LookUpAPIService.swift in Sources */,
 				268803EC22DDE366003D375B /* Protocols.swift in Sources */,
 				2688040922DE57A8003D375B /* TeamCell.swift in Sources */,
 				268803EB22DDE366003D375B /* Enums+Error.swift in Sources */,
 				268803E222DDE2DB003D375B /* APIService.swift in Sources */,
 				268803EA22DDE366003D375B /* Enums.swift in Sources */,
+				269910D222DF7EAA005B0F90 /* SearchAPIService.swift in Sources */,
 				2688040F22DE6074003D375B /* PlayersViewController.swift in Sources */,
 				2688040522DE5064003D375B /* HomePresenter.swift in Sources */,
 				268803F322DE3B01003D375B /* BaseDataManager.swift in Sources */,
 				2688040122DE4EC5003D375B /* PlayerViewModels.swift in Sources */,
 				268803ED22DDE366003D375B /* Extensions.swift in Sources */,
+				269910DB22DF86E3005B0F90 /* ImageAPIService.swift in Sources */,
 				268803DF22DDE2DB003D375B /* APIClient.swift in Sources */,
 				2688040322DE4EF3003D375B /* ViewModels.swift in Sources */,
 				2688041122DE673E003D375B /* TeamDataSource.swift in Sources */,

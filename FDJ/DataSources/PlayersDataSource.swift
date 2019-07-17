@@ -10,16 +10,16 @@ import Foundation
 import UIKit
 
 class PlayersDataSource: NSObject {
-    var items: [Player]
-    init(items: [Player]) {
+    var items: [PlayerViewModel]
+    init(items: [PlayerViewModel]) {
         self.items = items
         super.init()
     }
     // MARK: - Helper
-    func update(with results: [Player]) {
+    func update(with results: [PlayerViewModel]) {
         items = results
     }
-    func result(at indexPath: IndexPath) -> Player {
+    func result(at indexPath: IndexPath) -> PlayerViewModel {
         return items[indexPath.row]
     }
 }
@@ -32,8 +32,7 @@ extension PlayersDataSource: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PlayerCell.identifier, for: indexPath) as? PlayerCell else { return UITableViewCell() }
         let player = items[indexPath.row]
-        let viewModel = PlayerViewModel(with: player)
-        cell.configure(with: viewModel)
+        cell.configure(with: player)
         return cell
     }
 }

@@ -24,6 +24,7 @@
                     </imageView>
                 </subviews>
             </view>
+            <color key="backgroundColor" red="0.95055705742885355" green="0.94907115248660712" blue="0.97502621066384987" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="q3M-KC-8FL" secondAttribute="bottom" constant="20" id="8Ft-f0-Rrc"/>
                 <constraint firstItem="q3M-KC-8FL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="GmI-Hr-r9I"/>

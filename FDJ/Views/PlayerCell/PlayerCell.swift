@@ -15,9 +15,12 @@ class PlayerCell: UITableViewCell {
     @IBOutlet weak var positionLabel: UILabel!
     @IBOutlet weak var dobLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var containerView: UIView!
     static let identifier = "PlayerCell"
     
     func configure(with viewModel: PlayerViewModel) {
+        containerView.layer.cornerRadius = 10.0
+        containerView.layer.masksToBounds = true
         self.playerImageView.sd_setImage(with: viewModel.thumb)
         self.playerNameLabel.text = viewModel.name
         self.positionLabel.text = viewModel.position

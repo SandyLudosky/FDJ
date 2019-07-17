@@ -14,6 +14,8 @@ class TeamCell: UICollectionViewCell {
     static let identifier = "TeamCell"
    
     func configure(with viewModel: TeamViewModel) {
+        self.layer.cornerRadius = 10.0
+        self.layer.masksToBounds = true
         badgeImageView.sd_setImage(with: viewModel.badge)
     }
 }

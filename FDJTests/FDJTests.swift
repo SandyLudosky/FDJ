@@ -24,7 +24,6 @@ class FDJTests: XCTestCase {
     func testDataShouldNotBeNil() {
         homePresenter?.dataManager?.get(Team.self, for: .list(.allTeams("England Premier League")), completion: { results in
             switch results {
-                
             case .success(let data): XCTAssertNil(data, "data should not be nil")
             case .failure(let error): XCTAssertNil(error, "error should be nil")
             }

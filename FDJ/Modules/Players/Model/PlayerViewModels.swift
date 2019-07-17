@@ -22,13 +22,13 @@ struct PlayerViewModel:ViewModelProtocol  {
     var salary: String
     
     init(with type: Player) {
-        self.id = type.idPlayer
-        self.team = type.strTeam
-        self.teamId = type.idTeam
-        self.thumb = URL(string: type.strThumb)
-        self.name = type.strPlayer
-        self.position = type.strPosition
-        self.dob = type.dateBorn
-        self.salary = type.strSigning == "" ? "price: Not Specified" : "price: \(type.strSigning)"
+        self.id = type.idPlayer ?? ""
+        self.team = type.strTeam ?? ""
+        self.teamId = type.idTeam ?? ""
+        self.thumb = URL(string: type.strThumb ?? "") 
+        self.name = type.strPlayer ?? ""
+        self.position = type.strPosition ?? ""
+        self.dob = type.dateBorn ?? ""
+        self.salary = type.strSigning == "" ? "price: Not Specified" : "price: \(type.strSigning ?? "")"
     }
 }

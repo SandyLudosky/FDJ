@@ -11,8 +11,10 @@ import UIKit
 
 class TeamDataSource: NSObject {
     var items: [TeamViewModel]
-    init(items: [TeamViewModel]) {
+    var view = HomeViewController()
+    init(items: [TeamViewModel],_ view: HomeViewController) {
         self.items = items
+        self.view = view
         super.init()
     }
     // MARK: - Helper

@@ -23,7 +23,7 @@ extension URL {
     }
 }
 
-extension Sequence {
+extension Array where Element: Decodable {
     func transform<T: Codable>(_ type: T.Type) -> Any {
         let results = try? self.map({ dict -> Any in
             guard let data = try? JSONSerialization.data(withJSONObject: dict, options: []) else {
@@ -32,6 +32,13 @@ extension Sequence {
             return try JSONDecoder().decode(T.self, from: data)
         })
         return results ?? []
+    }
+    
+    func filter() -> [Element] {
+        let filtered = self.filter({ element -> Bool in
+            return element != nil
+        })
+        return filtered
     }
 }
 

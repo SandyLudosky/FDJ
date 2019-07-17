@@ -14,18 +14,21 @@ class HomeViewController: UIViewController, ViewProtocol {
     let searchController = UISearchController(searchResultsController: nil)
     var searchActive: Bool = false
     var presenter: HomePresenter?
-    var dataSource = TeamDataSource(items: [])
+    var dataSource: TeamDataSource?
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+         presenter?.fetch(with: .list(.allTeams("English Premier League")))
     }
     
     func setup() {
         presenter = HomePresenter(with: self)
+        dataSource = TeamDataSource(items: [], self)
         collectionView.dataSource = dataSource
         collectionView.register(UINib(nibName: TeamCell.identifier, bundle: nil), forCellWithReuseIdentifier: TeamCell.identifier)
         configureSearchBar()
         activityIndicator.isHidden = true
+        collectionView.showsHorizontalScrollIndicator = false
     }
     
     func show() {
@@ -53,7 +56,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
 extension HomeViewController {
     
     func didSucceed(with data: [TeamViewModel]) {
-        dataSource.update(with: data)
+        dataSource?.update(with: data)
         collectionView.reloadData()
     }
 
@@ -127,7 +130,7 @@ extension HomeViewController{
                 return
             }
             if let cell = sender as? TeamCell, let indexPath = self.collectionView.indexPath(for: cell) {
-                let team = dataSource.result(at: indexPath)
+                let team = dataSource?.result(at: indexPath)
                 playersVC.team = team
             }
         }

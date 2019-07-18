@@ -52,3 +52,29 @@ extension String {
     }
 }
 
+extension UICollectionView {
+    func setLayout(with width: CGFloat, columns: CGFloat, margin: Int) {
+        let minus = (margin * 2) + (margin / 2)
+        let w = (width / columns) - CGFloat(minus)
+        let cellWidth : CGFloat = w
+        let cellheight : CGFloat = w
+        let cellSize = CGSize(width: cellWidth , height:cellheight)
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical 
+        layout.itemSize = cellSize
+        layout.sectionInset = UIEdgeInsets(top: 1.0, left: CGFloat(margin), bottom: 1.0, right:  CGFloat(margin))
+        layout.minimumLineSpacing = CGFloat(margin / 2)
+        layout.minimumInteritemSpacing = 1.0
+        self.setCollectionViewLayout(layout, animated: true)
+    }
+    
+    func set(margin: Int) {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.sectionInset = UIEdgeInsets(top: 1.0, left: CGFloat(margin), bottom: 1.0, right:  CGFloat(margin))
+        layout.minimumLineSpacing = CGFloat(margin / 2)
+        layout.minimumInteritemSpacing = 1.0
+        self.setCollectionViewLayout(layout, animated: true)
+    }
+}

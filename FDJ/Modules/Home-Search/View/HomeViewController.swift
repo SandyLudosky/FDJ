@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, ViewProtocol {
+class HomeViewController: UIViewController, ViewProtocol, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     let searchController = UISearchController(searchResultsController: nil)
@@ -29,6 +29,9 @@ class HomeViewController: UIViewController, ViewProtocol {
         configureSearchBar()
         activityIndicator.isHidden = true
         collectionView.showsHorizontalScrollIndicator = false
+        print(collectionView.frame.size.width)
+       // collectionView.setLayout(with: collectionView.frame.width, columns: 2, margin: 10)
+        collectionView.set(margin: 2)
     }
     
     func show() {
@@ -46,10 +49,14 @@ class HomeViewController: UIViewController, ViewProtocol {
     }
 }
 
-extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
+extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
         performSegue(withIdentifier: "goToPlayers", sender: cell)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let itemSize = (collectionView.frame.width - (collectionView.contentInset.left + collectionView.contentInset.right + 10)) / 2
+        return CGSize(width: itemSize, height: itemSize)
     }
 }
 
@@ -64,6 +71,7 @@ extension HomeViewController {
          view?.makeToast(message: error.description ?? "No Results", duration: 1.0, position: .bottom, with: .black)
     }
 }
+
 
 //MARK: UISearchBarDelegate & UISearchResultsUpdating & UISearchControllerDelegate
 extension HomeViewController: UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {

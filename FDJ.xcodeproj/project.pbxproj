@@ -12,7 +12,6 @@
 		268803B122DDE291003D375B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268803AF22DDE291003D375B /* Main.storyboard */; };
 		268803B322DDE292003D375B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 268803B222DDE292003D375B /* Assets.xcassets */; };
 		268803B622DDE292003D375B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268803B422DDE292003D375B /* LaunchScreen.storyboard */; };
-		268803C122DDE292003D375B /* FDJTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803C022DDE292003D375B /* FDJTests.swift */; };
 		268803CC22DDE292003D375B /* FDJUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803CB22DDE292003D375B /* FDJUITests.swift */; };
 		268803DF22DDE2DB003D375B /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803DB22DDE2DA003D375B /* APIClient.swift */; };
 		268803E022DDE2DB003D375B /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803DC22DDE2DA003D375B /* APIProtocol.swift */; };
@@ -46,6 +45,10 @@
 		269910DD22DF8862005B0F90 /* LivescoreAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269910DC22DF8862005B0F90 /* LivescoreAPIService.swift */; };
 		269910E022DFA96B005B0F90 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269910DF22DFA96B005B0F90 /* Reachability.swift */; };
 		269910E222DFAB33005B0F90 /* ToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269910E122DFAB33005B0F90 /* ToastManager.swift */; };
+		2699117B22E1B9C7005B0F90 /* HomeSearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2699117A22E1B9C7005B0F90 /* HomeSearchTest.swift */; };
+		2699117E22E1BABF005B0F90 /* NetworkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2699117D22E1BABF005B0F90 /* NetworkTest.swift */; };
+		2699118122E1BE9B005B0F90 /* APIClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2699118022E1BE9B005B0F90 /* APIClientMock.swift */; };
+		26FFF09F22E4AC9F0067221D /* Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FFF09E22E4AC9F0067221D /* Stub.swift */; };
 		59A61D6BE22C18379A33D040 /* Pods_FDJ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EB9143221A19B32D6254AB /* Pods_FDJ.framework */; };
 		5BA8442D8EB621760B56CE7D /* Pods_FDJTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6865DD17E7C2B38921442199 /* Pods_FDJTests.framework */; };
 		9B8796311CC154C971C6DBE1 /* Pods_FDJUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BCC1B6016CD0C2244069380 /* Pods_FDJUITests.framework */; };
@@ -78,7 +81,6 @@
 		268803B522DDE292003D375B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		268803B722DDE292003D375B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		268803BC22DDE292003D375B /* FDJTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FDJTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		268803C022DDE292003D375B /* FDJTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FDJTests.swift; sourceTree = "<group>"; };
 		268803C222DDE292003D375B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		268803C722DDE292003D375B /* FDJUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FDJUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		268803CB22DDE292003D375B /* FDJUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FDJUITests.swift; sourceTree = "<group>"; };
@@ -115,6 +117,10 @@
 		269910DC22DF8862005B0F90 /* LivescoreAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivescoreAPIService.swift; sourceTree = "<group>"; };
 		269910DF22DFA96B005B0F90 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		269910E122DFAB33005B0F90 /* ToastManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastManager.swift; sourceTree = "<group>"; };
+		2699117A22E1B9C7005B0F90 /* HomeSearchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchTest.swift; sourceTree = "<group>"; };
+		2699117D22E1BABF005B0F90 /* NetworkTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTest.swift; sourceTree = "<group>"; };
+		2699118022E1BE9B005B0F90 /* APIClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientMock.swift; sourceTree = "<group>"; };
+		26FFF09E22E4AC9F0067221D /* Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stub.swift; sourceTree = "<group>"; };
 		2BCC1B6016CD0C2244069380 /* Pods_FDJUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FDJUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E8215926079CBA47073AA87 /* Pods-FDJ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FDJ.debug.xcconfig"; path = "Target Support Files/Pods-FDJ/Pods-FDJ.debug.xcconfig"; sourceTree = "<group>"; };
 		5BC822453E46D4920CA2A1A4 /* Pods-FDJ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FDJ.release.xcconfig"; path = "Target Support Files/Pods-FDJ/Pods-FDJ.release.xcconfig"; sourceTree = "<group>"; };
@@ -196,8 +202,9 @@
 		268803BF22DDE292003D375B /* FDJTests */ = {
 			isa = PBXGroup;
 			children = (
-				268803C022DDE292003D375B /* FDJTests.swift */,
 				268803C222DDE292003D375B /* Info.plist */,
+				2699117A22E1B9C7005B0F90 /* HomeSearchTest.swift */,
+				2699117D22E1BABF005B0F90 /* NetworkTest.swift */,
 			);
 			path = FDJTests;
 			sourceTree = "<group>";
@@ -214,6 +221,7 @@
 		268803D922DDE2A0003D375B /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2699117F22E1BE86005B0F90 /* MockTests */,
 				268803DB22DDE2DA003D375B /* APIClient.swift */,
 				268803DC22DDE2DA003D375B /* APIProtocol.swift */,
 				268803DD22DDE2DB003D375B /* JSONParser.swift */,
@@ -396,6 +404,15 @@
 				268803E822DDE366003D375B /* Protocols.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		2699117F22E1BE86005B0F90 /* MockTests */ = {
+			isa = PBXGroup;
+			children = (
+				2699118022E1BE9B005B0F90 /* APIClientMock.swift */,
+				26FFF09E22E4AC9F0067221D /* Stub.swift */,
+			);
+			path = MockTests;
 			sourceTree = "<group>";
 		};
 		4DF160F8D5FA19B54B9AC052 /* Frameworks */ = {
@@ -672,6 +689,7 @@
 				269910E022DFA96B005B0F90 /* Reachability.swift in Sources */,
 				269910E222DFAB33005B0F90 /* ToastManager.swift in Sources */,
 				268803E222DDE2DB003D375B /* APIService.swift in Sources */,
+				2699118122E1BE9B005B0F90 /* APIClientMock.swift in Sources */,
 				268803EA22DDE366003D375B /* Enums.swift in Sources */,
 				269910D222DF7EAA005B0F90 /* SearchAPIService.swift in Sources */,
 				2688040F22DE6074003D375B /* PlayersViewController.swift in Sources */,
@@ -679,6 +697,7 @@
 				268803F322DE3B01003D375B /* BaseDataManager.swift in Sources */,
 				2688040122DE4EC5003D375B /* PlayerViewModels.swift in Sources */,
 				268803ED22DDE366003D375B /* Extensions.swift in Sources */,
+				26FFF09F22E4AC9F0067221D /* Stub.swift in Sources */,
 				269910DB22DF86E3005B0F90 /* ImageAPIService.swift in Sources */,
 				268803DF22DDE2DB003D375B /* APIClient.swift in Sources */,
 				2688040322DE4EF3003D375B /* ViewModels.swift in Sources */,
@@ -690,7 +709,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				268803C122DDE292003D375B /* FDJTests.swift in Sources */,
+				2699117E22E1BABF005B0F90 /* NetworkTest.swift in Sources */,
+				2699117B22E1B9C7005B0F90 /* HomeSearchTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

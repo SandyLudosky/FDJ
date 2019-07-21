@@ -52,7 +52,8 @@ public enum ScheduleAPIService: APIProtocol {
         case .specificEvent(let id, let round, let season): return ["id": id, "r": round, "s": season]
         case .tvEvents(let date, let sport):
             if let s = sport {
-                return ["d": date, "s": s]
+                let d = Date() //same day query
+                return ["d": d, "s": s]
             }
             return ["d": date]
        

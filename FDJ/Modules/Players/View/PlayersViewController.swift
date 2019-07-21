@@ -28,7 +28,7 @@ class PlayersViewController: UIViewController, ViewProtocol {
     }
     
     func show() {
-        presenter?.fetch(with: .search(.players(team?.name, nil)))
+        presenter?.fetch(with: .search(.players(team: team?.name, name: nil)))
     }
     
     func startLoading() {

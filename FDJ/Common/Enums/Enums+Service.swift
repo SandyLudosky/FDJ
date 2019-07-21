@@ -9,44 +9,44 @@
 import Foundation
 
 public enum Search {
-    case team(_ name: String?,_ shortcode: String?)
-    case players(_ team: String?,_ name: String?)
-    case event(_ name: String?,_ file: String?)
+    case team(name: String?,shortcode: String?)
+    case players(team: String?, name: String?)
+    case event(name: String?, file: String?)
 }
 
 public enum List {
     case allSports
     case allLeagues
-    case allSeasons(_ leagueId: String)
-    case allTeams(_ leagueName: String)
-    case allTeamsDetails(_ leagueId: String)
-    case allPlayers(_ teamId: String)
-    case allLoves(_ user: String)
+    case allSeasons(leagueId: String)
+    case allTeams(leagueName: String)
+    case allTeamsDetails(leagueId: String)
+    case allPlayers(teamId: String)
+    case allLoves(user: String)
 }
 
 public enum Lookup {
-    case leagueDetails(_ id: String)
-    case teamDetails(_ id: String)
-    case playersDetails(_ id: String)
-    case eventDetails(_ id: String)
-    case honours(_ playerId: String)
-    case formerTeams(_ playerId: String)
-    case contract(_ playerId: String)
-    case tvEvent(_ eventId: String)
-    case table(_ leagueId: String, season: String)
+    case leagueDetails(id: String)
+    case teamDetails(id: String)
+    case playersDetails(id: String)
+    case eventDetails(id: String)
+    case honours(playerId: String)
+    case formerTeams(playerId: String)
+    case contract(playerId: String)
+    case tvEvent(eventId: String)
+    case table(leagueId: String, season: String)
 }
 
 public enum Schedule {
-    case next5events(_ id: String)
-    case next15events(_ id: String)
-    case last5events(_ id: String)
-    case last15events(_ id: String)
-    case specificEvent(_ id: String,_ round: String,_ season: String)
-    case tvEvents(_ date: String,_ sport: String?) // create enum for Sport
+    case next5events(id: String)
+    case next15events(id: String)
+    case last5events(id: String)
+    case last15events(id: String)
+    case specificEvent(id: String,round: String, season: String)
+    case tvEvents(date: String,sport: String?) // create enum for Sport
 }
 
 public enum Image {
-    case original(_ url:String), preview(_ url:String)
+    case original(url:String), preview(url:String)
 }
 
 public enum LiveScore {

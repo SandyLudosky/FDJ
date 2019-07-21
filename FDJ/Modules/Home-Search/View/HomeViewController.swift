@@ -18,7 +18,7 @@ class HomeViewController: UIViewController, ViewProtocol, UICollectionViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-         presenter?.fetch(with: .list(.allTeams("English Premier League")))
+        presenter?.fetch(with: .list(.allTeams(leagueName: "English Premier League")))
     }
     
     func setup() {
@@ -35,7 +35,7 @@ class HomeViewController: UIViewController, ViewProtocol, UICollectionViewDelega
     }
     
     func show() {
-        presenter?.fetch(with: .list(.allTeams(seachBarText)))
+        presenter?.fetch(with: .list(.allTeams(leagueName: seachBarText)))
     }
     
     func startLoading() {

@@ -123,14 +123,25 @@ public enum APIService: APIProtocol {
             case .allLoves(_): return "players"
 
             }
-        case .lookup(_):
-            return ""
-        case .schedule(_):
-            return ""
-        case .image(_):
-            return ""
-        case .livescore(_):
-            return ""
+        case .lookup(let endpoint):
+            switch endpoint {
+            case .leagueDetails: return "leagues"
+            case .teamDetails: return "teams"
+            case .playersDetails: return "players"
+            case .eventDetails: return "events"
+            case .honours: return "honours"
+            case .formerTeams: return "formerteams"
+            case .contract: return "contracts"
+            case .tvEvent: return "tvevent"
+            case .table:  return "table"
+            }
+        case .schedule(let endpoint):
+            switch endpoint {
+            case .next5events,  .next15events, .specificEvent: return "events"
+            case .last15events, .last5events: return "results"
+            case .tvEvents: return "tvevents"
+            }
+        case .image, .livescore: return ""
         }
     }
     public var httpType: RequestType {
@@ -179,7 +190,6 @@ public enum APIService: APIProtocol {
             }
         case .lookup(let endpoint):
             switch endpoint {
-                
             case .leagueDetails(let id),
                  .teamDetails(let id),
                  .playersDetails(let id),
@@ -214,26 +224,5 @@ public enum APIService: APIProtocol {
             }
         }
         return nil
-    }
-}
-
-extension APIService {
-    public var request: URLRequest? {
-        var queryItems = [URLQueryItem]()
-        if let params = parameters {
-            queryItems += add(params)
-        }
-        guard let request = try? asURLRequest(queryItems: queryItems) else {
-            return nil
-        }
-        return request
-    }
-    
-    private func add(_ params: [String : Any]) ->  [URLQueryItem] {
-        var queryItems = [URLQueryItem]()
-        for (key, value) in params {
-            queryItems.append(URLQueryItem(name: key, value: value as? String))
-        }
-        return queryItems
     }
 }

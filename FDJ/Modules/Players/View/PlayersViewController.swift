@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlayersViewController: UIViewController, ViewProtocol {
+class PlayersViewController: UIViewController {
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     var team: TeamViewModel?
@@ -20,13 +20,17 @@ class PlayersViewController: UIViewController, ViewProtocol {
         setup()
         show()
     }
+    
     func setup() {
         tableView.dataSource = dataSource
         tableView.register(UINib(nibName: PlayerCell.identifier, bundle: nil), forCellReuseIdentifier: PlayerCell.identifier)
         presenter = PlayersPresenter(with: self)
         self.title = team?.name
     }
-    
+}
+
+// MARK: - ViewProtocol
+extension PlayersViewController: ViewProtocol  {
     func show() {
         presenter?.fetch(with: .search(.players(team: team?.name, name: nil)))
     }
@@ -40,9 +44,7 @@ class PlayersViewController: UIViewController, ViewProtocol {
         indicator.stopAnimating()
         indicator.isHidden = true
     }
-}
-
-extension PlayersViewController {
+    
     func didSucceed(with data: [PlayerViewModel]) {
         dataSource.update(with: data)
         tableView.reloadData()

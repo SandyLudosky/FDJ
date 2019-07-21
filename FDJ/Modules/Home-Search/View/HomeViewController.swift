@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, ViewProtocol, UICollectionViewDelegateFlowLayout {
+class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     let searchController = UISearchController(searchResultsController: nil)
@@ -30,10 +30,25 @@ class HomeViewController: UIViewController, ViewProtocol, UICollectionViewDelega
         activityIndicator.isHidden = true
         collectionView.showsHorizontalScrollIndicator = false
         print(collectionView.frame.size.width)
-       // collectionView.setLayout(with: collectionView.frame.width, columns: 2, margin: 10)
         collectionView.set(margin: 2)
     }
-    
+}
+
+// MARK: - UICollectionViewDelegate
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        performSegue(withIdentifier: Segue.goToPlayers.string, sender: cell)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let itemSize = (collectionView.frame.width - (collectionView.contentInset.left + collectionView.contentInset.right + 10)) / 2
+        return CGSize(width: itemSize, height: itemSize)
+    }
+}
+
+
+// MARK: - ViewProtocol
+extension HomeViewController: ViewProtocol {
     func show() {
         presenter?.fetch(with: .list(.allTeams(leagueName: seachBarText)))
     }
@@ -47,20 +62,6 @@ class HomeViewController: UIViewController, ViewProtocol, UICollectionViewDelega
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
     }
-}
-
-extension HomeViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        performSegue(withIdentifier: "goToPlayers", sender: cell)
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemSize = (collectionView.frame.width - (collectionView.contentInset.left + collectionView.contentInset.right + 10)) / 2
-        return CGSize(width: itemSize, height: itemSize)
-    }
-}
-
-extension HomeViewController {
     
     func didSucceed(with data: [TeamViewModel]) {
         dataSource?.update(with: data)
@@ -68,16 +69,16 @@ extension HomeViewController {
     }
 
     func didFail(with error: ErrorHandler) {
+         dataSource?.update(with: [])
+         collectionView.reloadData()
          view?.makeToast(message: error.description ?? "No Results", duration: 1.0, position: .bottom, with: .black)
     }
 }
 
 
-//MARK: UISearchBarDelegate & UISearchResultsUpdating & UISearchControllerDelegate
+// MARK: - UISearchBarDelegate & UISearchResultsUpdating & UISearchControllerDelegate
 extension HomeViewController: UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
-    func updateSearchResults(for searchController: UISearchController) {
-        
-    }
+    func updateSearchResults(for searchController: UISearchController) {}
     
     var isSeachBarEmpty: Bool {
         return searchController.searchBar.text == ""
@@ -89,8 +90,7 @@ extension HomeViewController: UISearchResultsUpdating, UISearchBarDelegate, UISe
     
     private func configureSearchBar() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(HomeViewController.dismissSearchResultsController))
- 
-        //navigationItem.rightBarButtonItem = nil
+
         definesPresentationContext = true
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
@@ -108,10 +108,8 @@ extension HomeViewController: UISearchResultsUpdating, UISearchBarDelegate, UISe
             // Fallback on earlier versions
             searchController.dimsBackgroundDuringPresentation = false
         }
-        
         navigationItem.titleView = searchController.searchBar
         navigationItem.rightBarButtonItem = nil
-       
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
@@ -133,7 +131,7 @@ extension HomeViewController: UISearchResultsUpdating, UISearchBarDelegate, UISe
 // MARK: - Navigation
 extension HomeViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToPlayers" {
+        if segue.identifier == Segue.goToPlayers.string {
             guard let playersVC = segue.destination as? PlayersViewController else {
                 return
             }
@@ -142,6 +140,5 @@ extension HomeViewController{
                 playersVC.team = team
             }
         }
-       
     }
 }

@@ -18,6 +18,5 @@ struct Player: Decodable {
     let strPosition: String?
     let dateBorn: String?
     let strSigning: String?
-
 }
 

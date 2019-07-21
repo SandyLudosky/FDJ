@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class League: Decodable {
     let idLeague: String
     let strLeague: String
@@ -21,5 +20,4 @@ struct Team: Decodable {
     let strTeam: String
     let strTeamBadge: String
 }
-
 

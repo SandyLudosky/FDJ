@@ -8,9 +8,13 @@
 
 import Foundation
 
-public enum RequestType: String {
-    case get = "GET", post = "POST"
+public enum Segue: String {
+    case goToPlayers
+    var string: String {
+        return self.rawValue
+    }
 }
+
 public enum Response<U> {
     case array([U])
     case data(U)

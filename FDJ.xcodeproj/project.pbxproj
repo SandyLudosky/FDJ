@@ -184,17 +184,11 @@
 		268803AA22DDE291003D375B /* FDJ */ = {
 			isa = PBXGroup;
 			children = (
-				2688040B22DE5AB4003D375B /* DataSources */,
-				2688040622DE578C003D375B /* Views */,
+				26FFF0A322E4B66E0067221D /* Resources */,
 				268803F422DE3C82003D375B /* Modules */,
+				2688040622DE578C003D375B /* Views */,
+				2688040B22DE5AB4003D375B /* DataSources */,
 				268803E522DDE33E003D375B /* Common */,
-				268803DA22DDE2A8003D375B /* Services */,
-				268803D922DDE2A0003D375B /* Network */,
-				268803AB22DDE291003D375B /* AppDelegate.swift */,
-				268803AF22DDE291003D375B /* Main.storyboard */,
-				268803B222DDE292003D375B /* Assets.xcassets */,
-				268803B422DDE292003D375B /* LaunchScreen.storyboard */,
-				268803B722DDE292003D375B /* Info.plist */,
 			);
 			path = FDJ;
 			sourceTree = "<group>";
@@ -234,7 +228,6 @@
 			children = (
 				268803DE22DDE2DB003D375B /* APIService.swift */,
 				269910DE22DF943B005B0F90 /* APIServices */,
-				269910D922DF8597005B0F90 /* DataManager */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -242,6 +235,9 @@
 		268803E522DDE33E003D375B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				269910D922DF8597005B0F90 /* DataManagers */,
+				268803DA22DDE2A8003D375B /* Services */,
+				268803D922DDE2A0003D375B /* Network */,
 				269910E322DFB095005B0F90 /* Utils */,
 				268803EF22DE00FA003D375B /* Enums */,
 			);
@@ -340,6 +336,8 @@
 		2688040622DE578C003D375B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				268803AF22DDE291003D375B /* Main.storyboard */,
+				268803B422DDE292003D375B /* LaunchScreen.storyboard */,
 				2688041522DE69C2003D375B /* PlayerCell */,
 				2688041422DE69B9003D375B /* TeamCell */,
 			);
@@ -373,13 +371,13 @@
 			path = PlayerCell;
 			sourceTree = "<group>";
 		};
-		269910D922DF8597005B0F90 /* DataManager */ = {
+		269910D922DF8597005B0F90 /* DataManagers */ = {
 			isa = PBXGroup;
 			children = (
 				268803F222DE3B01003D375B /* BaseDataManager.swift */,
 				268803E322DDE30D003D375B /* DataManager.swift */,
 			);
-			path = DataManager;
+			path = DataManagers;
 			sourceTree = "<group>";
 		};
 		269910DE22DF943B005B0F90 /* APIServices */ = {
@@ -413,6 +411,16 @@
 				26FFF09E22E4AC9F0067221D /* Stub.swift */,
 			);
 			path = MockTests;
+			sourceTree = "<group>";
+		};
+		26FFF0A322E4B66E0067221D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				268803AB22DDE291003D375B /* AppDelegate.swift */,
+				268803B222DDE292003D375B /* Assets.xcassets */,
+				268803B722DDE292003D375B /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		4DF160F8D5FA19B54B9AC052 /* Frameworks */ = {

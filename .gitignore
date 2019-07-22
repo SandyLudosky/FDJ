@@ -1,0 +1,10 @@
+Pods/Pods.xcodeproj/xcuserdata/sandy.xcuserdatad/xcschemes/ReachabilitySwift.xcscheme
+Pods/ReachabilitySwift/LICENSE
+Pods/ReachabilitySwift/README.md
+Pods/ReachabilitySwift/Sources/Reachability.swift
+Pods/Target Support Files/ReachabilitySwift/ReachabilitySwift-dummy.m
+Pods/Target Support Files/ReachabilitySwift/ReachabilitySwift-Info.plist
+Pods/Target Support Files/ReachabilitySwift/ReachabilitySwift-prefix.pch
+Pods/Target Support Files/ReachabilitySwift/ReachabilitySwift-umbrella.h
+Pods/Target Support Files/ReachabilitySwift/ReachabilitySwift.modulemap
+Pods/Target Support Files/ReachabilitySwift/ReachabilitySwift.xcconfig

@@ -15,7 +15,7 @@ class DataManager: BaseDataManager {
             switch results {
             case .dict(let dict):
                 guard let array = dict[service.key] as? [[String: Any]] else {
-                    if let _ = dict["teams"] as? Any {
+                    if let _ = dict["teams"] {
                          completion(.failure(.resultNull))
                          return
                     }

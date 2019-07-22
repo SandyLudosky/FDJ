@@ -39,10 +39,7 @@ public enum ScheduleAPIService: APIProtocol {
         case .tvEvents: return "tvevents"
         }
     }
-    public var httpType: RequestType {
-        return .get
-    }
-    
+  
     public var parameters: [String : Any]? {
         switch self {
         case .next5events(let id),

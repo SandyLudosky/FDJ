@@ -50,10 +50,7 @@ public enum LookUpAPIService: APIProtocol {
         case .table:  return "table"
         }
     }
-    public var httpType: RequestType {
-        return .get
-    }
-    
+ 
     public var parameters: [String : Any]? {
         switch self {
         case .leagueDetails(let id),

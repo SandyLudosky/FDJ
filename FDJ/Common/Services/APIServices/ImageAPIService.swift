@@ -26,10 +26,7 @@ public enum ImageAPIService: APIProtocol {
     public var key: String {
           return ""
     }
-    public var httpType: RequestType {
-        return .get
-    }
-    
+
     public var parameters: [String : Any]? {
        return nil
     }

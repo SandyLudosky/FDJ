@@ -44,9 +44,7 @@ public enum ListAPIService: APIProtocol {
         case .allLoves(_): return "players"
         }
     }
-    public var httpType: RequestType {
-        return .get
-    }
+  
     
     public var parameters: [String : Any]? {
         switch self {

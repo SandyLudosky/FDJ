@@ -144,9 +144,7 @@ public enum APIService: APIProtocol {
         case .image, .livescore: return ""
         }
     }
-    public var httpType: RequestType {
-        return .get
-    }
+
 
     public var parameters: [String : Any]? {
         switch self {

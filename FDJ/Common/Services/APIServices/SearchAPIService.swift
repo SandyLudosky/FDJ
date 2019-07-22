@@ -50,9 +50,6 @@ public enum SearchAPIService: APIProtocol {
         case .event(_, _): return "event"
         }
     }
-    public var httpType: RequestType {
-        return .get
-    }
     
     public var parameters: [String : Any]? {
         switch self {

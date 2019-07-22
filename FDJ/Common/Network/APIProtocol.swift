@@ -11,7 +11,6 @@ import Foundation
 public protocol APIProtocol {
     var baseURL: String { get }
     var endpoint: String { get } // required
-    var httpType: RequestType { get }
     var parameters: [String : Any]? { get }
     var key: String { get }
     var request: URLRequest? { get }

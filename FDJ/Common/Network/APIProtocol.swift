@@ -36,7 +36,7 @@ extension APIProtocol {
     
     public var request: URLRequest? {
         var queryItems = [URLQueryItem]()
-        if let params = endpoint.queryItem {
+        if let params = endpoint.parameters {
             queryItems += add(params)
         }
         guard let request = try? asURLRequest(queryItems: queryItems) else {

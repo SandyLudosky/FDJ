@@ -29,7 +29,7 @@ public enum List: Endpoint {
         }
     }
     
-    public var queryItem: Dictionary<String, Any>? {
+    public var parameters: Dictionary<String, Any>? {
         switch self {
         case .allSports, .allLeagues: break
         case .allSeasons(let id): return ["id": id]

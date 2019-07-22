@@ -18,7 +18,7 @@ public enum Image: Endpoint {
         }
     }
     
-    public var queryItem: Dictionary<String, Any>? {
+    public var parameters: Dictionary<String, Any>? {
           return nil
     }
 }

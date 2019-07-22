@@ -10,6 +10,6 @@ import Foundation
 
 public protocol Endpoint {
     var path: String? { get }
-    var queryItem: Dictionary<String, Any>? { get }
+    var parameters: Dictionary<String, Any>? { get }
 }
 

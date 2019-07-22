@@ -29,7 +29,7 @@ public enum Search: Endpoint {
         return ""
     }
     
-    public var queryItem: Dictionary<String, Any>? {
+    public var parameters: Dictionary<String, Any>? {
         switch self {
         case .team(let name, let shortcode):
             if let team = name {

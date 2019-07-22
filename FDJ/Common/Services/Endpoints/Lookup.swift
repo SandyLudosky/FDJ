@@ -19,6 +19,7 @@ public enum Lookup: Endpoint {
     case contract(playerId: String)
     case tvEvent(eventId: String)
     case table(leagueId: String, season: String)
+    
     public var path: String? {
         switch  self {
         case .leagueDetails: return "lookupleague.php"
@@ -33,7 +34,7 @@ public enum Lookup: Endpoint {
         }
     }
     
-    public var queryItem: Dictionary<String, Any>? {
+    public var parameters: Dictionary<String, Any>? {
         switch self {
         case .leagueDetails(let id),
              .teamDetails(let id),

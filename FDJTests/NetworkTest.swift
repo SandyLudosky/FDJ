@@ -15,8 +15,12 @@ class NetworkTest: XCTestCase {
     var client: APIClientMock?
     
     override func setUp() {
-        client = APIClientMock(with: .list(.allTeams(leagueName: "English Premier League")) )
+       // client = APIClientMock(with: .list(.allTeams(leagueName: "English Premier League")) )
+        
+        client = APIClientMock(with: .lookup(.honours(playerId: "4147178")))
     }
+    
+
     
     func testAPIClientSuccessfulResponse() {
         guard let url = client?.service?.request?.url else {

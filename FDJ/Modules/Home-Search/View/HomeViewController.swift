@@ -15,10 +15,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     var searchActive: Bool = false
     var presenter: HomePresenter?
     var dataSource: TeamDataSource?
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        presenter?.fetch(with: .list(.allTeams(leagueName: "English Premier League")))
+       presenter?.fetch(with: .list(.allTeams(leagueName: "English Premier League")))
+       // presenter?.fetch(with: .lookup(.honours(playerId: "34147178")))
     }
     
     func setup() {

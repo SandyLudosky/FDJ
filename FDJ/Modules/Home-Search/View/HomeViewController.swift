@@ -15,6 +15,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     var searchActive: Bool = false
     var presenter: HomePresenter?
     var dataSource: TeamDataSource?
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()

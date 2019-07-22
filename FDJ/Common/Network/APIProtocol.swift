@@ -10,19 +10,20 @@ import Foundation
 
 public protocol APIProtocol {
     var baseURL: String { get }
-    var endpoint: String { get } // required
-    var httpType: RequestType { get }
-    var parameters: [String : Any]? { get }
+    var endpoint: Endpoint { get }
     var key: String { get }
     var request: URLRequest? { get }
 }
 
+
 extension APIProtocol {
-    func asURLRequest(queryItems: [URLQueryItem]) throws -> URLRequest? {
+  
+    public    func asURLRequest(queryItems: [URLQueryItem]) throws -> URLRequest? {
         //baseURL + endpoints
-        guard let urlStr = URL(string: baseURL)
+        guard let urlStr = URL(string: baseURL),
+              let endpoint = endpoint.path
             else { throw ErrorHandler.encodingError }
-        
+    
         let urlComponents = urlStr.appendingPathComponent(endpoint)
         guard var components = URLComponents(url: urlComponents, resolvingAgainstBaseURL: false) else { throw ErrorHandler.encodingError }
         components.queryItems = queryItems
@@ -32,12 +33,10 @@ extension APIProtocol {
         print(url)
         return URLRequest(url: url)
     }
-}
-
-extension APIProtocol {
+    
     public var request: URLRequest? {
         var queryItems = [URLQueryItem]()
-        if let params = parameters {
+        if let params = endpoint.queryItem {
             queryItems += add(params)
         }
         guard let request = try? asURLRequest(queryItems: queryItems) else {

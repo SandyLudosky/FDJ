@@ -15,7 +15,6 @@ protocol ViewModelProtocol {
 
 struct LeagueViewModel: ViewModelProtocol {
     typealias T = League
-    
     let id: String
     let league: String
     let sport: String
@@ -31,7 +30,6 @@ struct LeagueViewModel: ViewModelProtocol {
 
 struct TeamViewModel: ViewModelProtocol {
     typealias T = Team
-    
     let id: String
     let name: String
     let badge: URL?

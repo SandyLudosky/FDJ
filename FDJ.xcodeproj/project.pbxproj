@@ -12,7 +12,7 @@
 		264745D122E545EA001A92A8 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264745D022E545EA001A92A8 /* Search.swift */; };
 		264745D322E54834001A92A8 /* Lookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264745D222E54834001A92A8 /* Lookup.swift */; };
 		264745D522E54982001A92A8 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264745D422E54982001A92A8 /* Schedule.swift */; };
-		264745D722E549F1001A92A8 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264745D622E549F1001A92A8 /* Endpoint.swift */; };
+		264745D722E549F1001A92A8 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264745D622E549F1001A92A8 /* Image.swift */; };
 		264745D922E54A86001A92A8 /* Livescore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264745D822E54A86001A92A8 /* Livescore.swift */; };
 		264745DD22E55E26001A92A8 /* ConnectivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264745DC22E55E26001A92A8 /* ConnectivityService.swift */; };
 		268803AC22DDE291003D375B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803AB22DDE291003D375B /* AppDelegate.swift */; };
@@ -79,7 +79,7 @@
 		264745D022E545EA001A92A8 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		264745D222E54834001A92A8 /* Lookup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lookup.swift; sourceTree = "<group>"; };
 		264745D422E54982001A92A8 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
-		264745D622E549F1001A92A8 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		264745D622E549F1001A92A8 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		264745D822E54A86001A92A8 /* Livescore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Livescore.swift; sourceTree = "<group>"; };
 		264745DC22E55E26001A92A8 /* ConnectivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityService.swift; sourceTree = "<group>"; };
 		268803A822DDE291003D375B /* FDJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FDJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,7 +176,7 @@
 				264745CE22E54262001A92A8 /* List.swift */,
 				264745D222E54834001A92A8 /* Lookup.swift */,
 				264745D422E54982001A92A8 /* Schedule.swift */,
-				264745D622E549F1001A92A8 /* Endpoint.swift */,
+				264745D622E549F1001A92A8 /* Image.swift */,
 				264745D822E54A86001A92A8 /* Livescore.swift */,
 			);
 			path = Endpoints;
@@ -714,7 +714,7 @@
 				26FFF09F22E4AC9F0067221D /* Stub.swift in Sources */,
 				268803DF22DDE2DB003D375B /* APIClient.swift in Sources */,
 				2688040322DE4EF3003D375B /* ViewModels.swift in Sources */,
-				264745D722E549F1001A92A8 /* Endpoint.swift in Sources */,
+				264745D722E549F1001A92A8 /* Image.swift in Sources */,
 				2688041122DE673E003D375B /* TeamDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

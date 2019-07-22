@@ -20,7 +20,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        presenter?.fetch(with: .list(.allTeams(leagueName: "English Premier League")))
+       presenter?.fetch(with: .list(.allTeams(leagueName: "English Premier League")))
+       // presenter?.fetch(with: .lookup(.honours(playerId: "34147178")))
     }
     
     func setup() {

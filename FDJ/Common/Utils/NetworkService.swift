@@ -1,5 +1,5 @@
 //
-//  ConnectivityService.swift
+//  NetworkService.swift
 //  FDJ
 //
 //  Created by Sandy on 2019-07-22.
@@ -11,7 +11,7 @@ import Foundation
 class ConnectivityService {
     var url: URL?
     static let shared = ConnectivityService(url: URL(string: "https://www.google.fr/")!)
-    var isOn: Bool = false
+    var isOn: Bool?
     private init(url: URL) {
         self.url = url
         checkConnectivity()
@@ -20,8 +20,8 @@ class ConnectivityService {
     private func checkConnectivity() {
         let request = URLRequest(url: url!)
         let task = URLSession.shared.dataTask(with: request) {data, response, error in
-            if let _ = response as? HTTPURLResponse {
-                self.isOn = true
+            if let httpResponse = response as? HTTPURLResponse {
+                self.isOn = httpResponse.statusCode == 200
             }
         }
         task.resume()

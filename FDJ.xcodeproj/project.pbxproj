@@ -29,7 +29,6 @@
 		268803EB22DDE366003D375B /* Enums+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803E722DDE366003D375B /* Enums+Error.swift */; };
 		268803EC22DDE366003D375B /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803E822DDE366003D375B /* Protocols.swift */; };
 		268803ED22DDE366003D375B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803E922DDE366003D375B /* Extensions.swift */; };
-		268803F122DE010A003D375B /* Enums+Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803F022DE010A003D375B /* Enums+Service.swift */; };
 		268803F322DE3B01003D375B /* BaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803F222DE3B01003D375B /* BaseDataManager.swift */; };
 		268803F622DE3CCE003D375B /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268803F522DE3CCE003D375B /* Models.swift */; };
 		2688040122DE4EC5003D375B /* PlayerViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2688040022DE4EC5003D375B /* PlayerViewModels.swift */; };
@@ -102,7 +101,6 @@
 		268803E722DDE366003D375B /* Enums+Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Enums+Error.swift"; sourceTree = "<group>"; };
 		268803E822DDE366003D375B /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		268803E922DDE366003D375B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		268803F022DE010A003D375B /* Enums+Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enums+Service.swift"; sourceTree = "<group>"; };
 		268803F222DE3B01003D375B /* BaseDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataManager.swift; sourceTree = "<group>"; };
 		268803F522DE3CCE003D375B /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		2688040022DE4EC5003D375B /* PlayerViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModels.swift; sourceTree = "<group>"; };
@@ -260,11 +258,11 @@
 		268803E522DDE33E003D375B /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				269910D922DF8597005B0F90 /* DataManagers */,
-				268803DA22DDE2A8003D375B /* Services */,
 				268803D922DDE2A0003D375B /* Network */,
-				269910E322DFB095005B0F90 /* Utils */,
+				268803DA22DDE2A8003D375B /* Services */,
+				269910D922DF8597005B0F90 /* DataManagers */,
 				268803EF22DE00FA003D375B /* Enums */,
+				269910E322DFB095005B0F90 /* Utils */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -274,7 +272,6 @@
 			children = (
 				268803E622DDE366003D375B /* Enums.swift */,
 				268803E722DDE366003D375B /* Enums+Error.swift */,
-				268803F022DE010A003D375B /* Enums+Service.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -692,7 +689,6 @@
 				268803E022DDE2DB003D375B /* APIProtocol.swift in Sources */,
 				268803E122DDE2DB003D375B /* JSONParser.swift in Sources */,
 				268803F622DE3CCE003D375B /* Models.swift in Sources */,
-				268803F122DE010A003D375B /* Enums+Service.swift in Sources */,
 				264745D922E54A86001A92A8 /* Livescore.swift in Sources */,
 				264745CD22E541A7001A92A8 /* QueryItemProvider.swift in Sources */,
 				2688041A22DE69F8003D375B /* PlayerCell.swift in Sources */,

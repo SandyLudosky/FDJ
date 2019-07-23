@@ -7,6 +7,7 @@ target 'FDJ' do
 
   # Pods for FDJ
   pod 'SDWebImage', '~> 5.0'
+  pod 'ReachabilitySwift'
 
   target 'FDJTests' do
     inherit! :search_paths

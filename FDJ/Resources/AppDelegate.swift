@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Reachability
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        if internet.isOn == false  {
+        if !NetworkManager.isConnected  {
             guard let nav =  window?.rootViewController as? UINavigationController,
                   let vc = nav.viewControllers.first as? HomeViewController,
                   let view = vc.view else { return false }

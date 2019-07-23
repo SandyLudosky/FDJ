@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14845" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14799.2"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,41 +14,41 @@
             <rect key="frame" x="0.0" y="0.0" width="420" height="113"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="420" height="112.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="420" height="113"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OBN-R4-aOK">
-                        <rect key="frame" x="20" y="5" width="380" height="97.5"/>
+                        <rect key="frame" x="20" y="5" width="380" height="98"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="nzK-rp-Nrf">
-                                <rect key="frame" x="0.0" y="0.0" width="380" height="97.5"/>
+                                <rect key="frame" x="0.0" y="10" width="380" height="78"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ge7-an-Wdh">
-                                        <rect key="frame" x="0.0" y="0.0" width="101.5" height="97.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="101.5" height="78"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="TQs-bE-6Eb">
-                                        <rect key="frame" x="115.5" y="0.0" width="264.5" height="97.5"/>
+                                        <rect key="frame" x="115.5" y="0.0" width="264.5" height="78"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufT-BY-uHz">
-                                                <rect key="frame" x="0.0" y="0.0" width="264.5" height="21.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="264.5" height="16.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nr-rt-TlL">
-                                                <rect key="frame" x="0.0" y="25.5" width="264.5" height="21.5"/>
+                                                <rect key="frame" x="0.0" y="20.5" width="264.5" height="16.5"/>
                                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXY-hb-eYE">
-                                                <rect key="frame" x="0.0" y="51" width="264.5" height="21"/>
+                                                <rect key="frame" x="0.0" y="41" width="264.5" height="16.5"/>
                                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fS9-Qs-FoT">
-                                                <rect key="frame" x="0.0" y="76" width="264.5" height="21.5"/>
+                                                <rect key="frame" x="0.0" y="61.5" width="264.5" height="16.5"/>
                                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <nil key="highlightedColor"/>
@@ -66,10 +64,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.95055705739999996" green="0.94907115249999996" blue="0.97502621069999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="nzK-rp-Nrf" firstAttribute="top" secondItem="OBN-R4-aOK" secondAttribute="top" id="HCY-Hb-zjs"/>
+                            <constraint firstItem="nzK-rp-Nrf" firstAttribute="top" secondItem="OBN-R4-aOK" secondAttribute="top" constant="10" id="HCY-Hb-zjs"/>
                             <constraint firstItem="nzK-rp-Nrf" firstAttribute="leading" secondItem="OBN-R4-aOK" secondAttribute="leading" id="MAu-Fp-jIc"/>
                             <constraint firstAttribute="trailing" secondItem="nzK-rp-Nrf" secondAttribute="trailing" id="j65-uk-G5X"/>
-                            <constraint firstAttribute="bottom" secondItem="nzK-rp-Nrf" secondAttribute="bottom" id="ldM-Dk-geB"/>
+                            <constraint firstAttribute="bottom" secondItem="nzK-rp-Nrf" secondAttribute="bottom" constant="10" id="ldM-Dk-geB"/>
                         </constraints>
                     </view>
                 </subviews>

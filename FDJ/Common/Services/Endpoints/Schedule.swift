@@ -26,7 +26,6 @@ public enum Schedule: Endpoint {
         case .tvEvents: return "eventstv.php"
         }
     }
-    
     public var parameters: Dictionary<String, Any>? {
         switch self {
         case .next5events(let id),

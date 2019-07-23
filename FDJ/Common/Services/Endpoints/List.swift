@@ -28,7 +28,6 @@ public enum List: Endpoint {
         case .allLoves: return "searchloves.php"
         }
     }
-    
     public var parameters: Dictionary<String, Any>? {
         switch self {
         case .allSports, .allLeagues: break

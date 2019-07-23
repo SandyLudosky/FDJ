@@ -16,8 +16,8 @@ protocol ViewProtocol {
     func stopLoading()
     func didSucceed(with data: [VM])
     func didFail(with error: ErrorHandler)
-  
 }
+
 protocol PresenterProtocol {
     associatedtype V
     var view: V? { get set }

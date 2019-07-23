@@ -24,7 +24,7 @@ class APIClient<T: APIProtocol> {
         task?.resume()
     }
 }
-
+// MARK: - Private
 private extension APIClient {
     private func runTask(with service: APIProtocol, completion: @escaping ResultHandler) -> URLSessionDataTask? {
         guard let request = service.request else {

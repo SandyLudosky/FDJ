@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class PlayersPresenter: PresenterProtocol {
     var dataManager: DataManager?
     var view: PlayersViewController?
@@ -24,9 +23,7 @@ class PlayersPresenter: PresenterProtocol {
         dataManager?.get(Player.self, for: service, completion: { results in
             switch results {
             case .success(let collection):
-                
                 guard let players = (collection as? [Player])?.filter() else { return }
-                
                 let viewModels = players.map({ player -> PlayerViewModel in
                     return PlayerViewModel(with: player)
                 })

@@ -9,7 +9,6 @@
 import Foundation
 
 struct PlayerViewModel:ViewModelProtocol  {
- 
     typealias T = Player
     var id: String
     var team: String

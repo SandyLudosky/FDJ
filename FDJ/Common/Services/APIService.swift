@@ -13,9 +13,7 @@ struct API {
     static let key = "APIKEY"
 }
 public enum APIService: APIProtocol {
-    
     case search(Search), list(List), lookup(Lookup), schedule(Schedule), image(Image), livescore(LiveScore)
-    
     public var baseURL: String {
         switch  self {
         case .search(let endpoint):
@@ -35,7 +33,6 @@ public enum APIService: APIProtocol {
         }
         return ""
     }
-
     public var endpoint: Endpoint {
         switch self {
         case .search(let service): return service
@@ -46,7 +43,6 @@ public enum APIService: APIProtocol {
         case .livescore(let service): return service
         }
     }
-    
     public var key: String {
         switch self {
         case .search(let endpoint):

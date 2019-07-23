@@ -14,7 +14,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     let searchController = UISearchController(searchResultsController: nil)
     var searchActive: Bool = false
     var presenter: HomePresenter?
-    var dataSource: TeamDataSource?
+    lazy var dataSource: TeamDataSource? = {
+        return TeamDataSource(items: [], self)
+    }()
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +50,6 @@ extension HomeViewController: UICollectionViewDelegate {
     }
 }
 
-
 // MARK: - ViewProtocol
 extension HomeViewController: ViewProtocol {
     func show() {
@@ -77,7 +78,6 @@ extension HomeViewController: ViewProtocol {
     }
 }
 
-
 // MARK: - UISearchBarDelegate & UISearchResultsUpdating & UISearchControllerDelegate
 extension HomeViewController: UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
     func updateSearchResults(for searchController: UISearchController) {}
@@ -95,7 +95,6 @@ extension HomeViewController: UISearchResultsUpdating, UISearchBarDelegate, UISe
 
         definesPresentationContext = true
         searchController.hidesNavigationBarDuringPresentation = false
-        searchController.dimsBackgroundDuringPresentation = false
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.sizeToFit()
         searchController.searchBar.becomeFirstResponder()

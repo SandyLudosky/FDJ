@@ -15,9 +15,7 @@ public protocol APIProtocol {
     var request: URLRequest? { get }
 }
 
-
 extension APIProtocol {
-  
     public    func asURLRequest(queryItems: [URLQueryItem]) throws -> URLRequest? {
         //baseURL + endpoints
         guard let urlStr = URL(string: baseURL),
@@ -44,12 +42,15 @@ extension APIProtocol {
         }
         return request
     }
-    
+}
+
+// MARK: - Private
+extension APIProtocol {
     private func add(_ params: [String : Any]) ->  [URLQueryItem] {
-        var queryItems = [URLQueryItem]()
-        for (key, value) in params {
-            queryItems.append(URLQueryItem(name: key, value: value as? String))
-        }
-        return queryItems
-    }
+         var queryItems = [URLQueryItem]()
+         for (key, value) in params {
+             queryItems.append(URLQueryItem(name: key, value: value as? String))
+         }
+         return queryItems
+     }
 }

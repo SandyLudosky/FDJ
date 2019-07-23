@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 public enum LiveScore: Endpoint {
     case soccer, golf, basket, football
     
@@ -20,7 +19,6 @@ public enum LiveScore: Endpoint {
         case .football: return  "latestamericanfootball.php"
         }
     }
-    
     public var parameters: Dictionary<String, Any>? {
         return nil
     }

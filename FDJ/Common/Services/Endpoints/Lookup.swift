@@ -33,7 +33,6 @@ public enum Lookup: Endpoint {
         case .table: return "lookuptable.php"
         }
     }
-    
     public var parameters: Dictionary<String, Any>? {
         switch self {
         case .leagueDetails(let id),

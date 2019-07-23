@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 public enum Image: Endpoint {
     case original(url:String), preview(url:String)
     public var path: String? {
@@ -17,7 +16,6 @@ public enum Image: Endpoint {
         case .preview(let url): return "\(url)/preview"
         }
     }
-    
     public var parameters: Dictionary<String, Any>? {
           return nil
     }

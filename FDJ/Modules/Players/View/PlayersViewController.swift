@@ -13,7 +13,9 @@ class PlayersViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var team: TeamViewModel?
     var presenter: PlayersPresenter?
-    var dataSource = PlayersDataSource(items: [])
+    lazy var dataSource: PlayersDataSource? = {
+        return PlayersDataSource(items: [])
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +48,7 @@ extension PlayersViewController: ViewProtocol  {
     }
     
     func didSucceed(with data: [PlayerViewModel]) {
-        dataSource.update(with: data)
+        dataSource?.update(with: data)
         tableView.reloadData()
     }
 

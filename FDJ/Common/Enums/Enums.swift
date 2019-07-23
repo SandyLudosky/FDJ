@@ -14,7 +14,6 @@ public enum Segue: String {
         return self.rawValue
     }
 }
-
 public enum Response<U> {
     case array([U])
     case data(U)

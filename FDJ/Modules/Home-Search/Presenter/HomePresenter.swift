@@ -43,4 +43,8 @@ class HomePresenter: PresenterProtocol {
         })
     }
     
+    deinit {
+        dataManager = nil
+    }
+    
 }

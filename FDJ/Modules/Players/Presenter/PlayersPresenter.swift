@@ -10,7 +10,7 @@ import Foundation
 
 class PlayersPresenter: PresenterProtocol {
     var dataManager: DataManager?
-    var view: PlayersViewController?
+    weak var view: PlayersViewController?
     typealias T = Player
     
     required init(with view: PlayersViewController) {
@@ -38,6 +38,9 @@ class PlayersPresenter: PresenterProtocol {
                 }
             }
         })
+    }
+    deinit {
+        dataManager = nil
     }
 }
 

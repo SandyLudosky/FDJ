@@ -7,20 +7,28 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ViewProtocol {
-    associatedtype VM 
+    var interactor: InteractorProtocol? { get set }
     func setup()
     func show()
     func startLoading()
     func stopLoading()
-    func didSucceed(with data: [VM])
+    func didSucceed<VM: ViewModelProtocol>(with results: [VM])
     func didFail(with error: ErrorHandler)
 }
 
-protocol PresenterProtocol {
-    associatedtype V
-    var view: V? { get set }
-    init(with view: V)
+protocol InteractorProtocol {
+    var dataManager: DataManager? { get set }
+    var presenter:PresenterProtocol? { get set }
     func fetch(with service: APIService)
 }
+
+protocol PresenterProtocol {
+      var view: ViewProtocol? { get set }
+      init(with view: ViewProtocol)
+      func didSucceed(_ viewModel: Any)
+      func didFail(_ error: ErrorHandler)
+}
+

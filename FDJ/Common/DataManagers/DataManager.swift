@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class DataManager: BaseDataManager {
     override func get<T>(_ itemCollection: T.Type, for service: APIService, completion: @escaping Handler) where T : Decodable {
         client.get(with: service) { [weak self] results in

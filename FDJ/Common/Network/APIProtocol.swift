@@ -16,7 +16,7 @@ public protocol APIProtocol {
 }
 
 extension APIProtocol {
-    public    func asURLRequest(queryItems: [URLQueryItem]) throws -> URLRequest? {
+    public func asURLRequest(queryItems: [URLQueryItem]) throws -> URLRequest? {
         //baseURL + endpoints
         guard let urlStr = URL(string: baseURL),
               let endpoint = endpoint.path
@@ -40,6 +40,7 @@ extension APIProtocol {
         guard let request = try? asURLRequest(queryItems: queryItems) else {
             return nil
         }
+        print("request \(String(describing: request.url)) ")
         return request
     }
 }

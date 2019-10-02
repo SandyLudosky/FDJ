@@ -13,7 +13,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     let searchController = UISearchController(searchResultsController: nil)
     var searchActive: Bool = false
-    var presenter: HomePresenter?
+    var interactor: InteractorProtocol?
     lazy var dataSource: TeamDataSource? = {
         return TeamDataSource(items: [], self)
     }()
@@ -21,12 +21,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-       presenter?.fetch(with: .list(.allTeams(leagueName: "English Premier League")))
-       // presenter?.fetch(with: .lookup(.honours(playerId: "34147178")))
+        show()
     }
     
     func setup() {
-        presenter = HomePresenter(with: self)
+        interactor = HomeInteractor()
+        interactor?.presenter = HomePresenter(with: self)
+        interactor?.dataManager = DataManager()
         dataSource = TeamDataSource(items: [], self)
         collectionView.dataSource = dataSource
         collectionView.register(UINib(nibName: TeamCell.identifier, bundle: nil), forCellWithReuseIdentifier: TeamCell.identifier)
@@ -52,10 +53,10 @@ extension HomeViewController: UICollectionViewDelegate {
 
 // MARK: - ViewProtocol
 extension HomeViewController: ViewProtocol {
+  
     func show() {
-        presenter?.fetch(with: .list(.allTeams(leagueName: seachBarText)))
+        interactor?.fetch(with: .list(.allTeams(leagueName: "English Premier League")))
     }
-    
     func startLoading() {
         activityIndicator.startAnimating()
         activityIndicator.isHidden = false
@@ -65,9 +66,8 @@ extension HomeViewController: ViewProtocol {
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
     }
-    
-    func didSucceed(with data: [TeamViewModel]) {
-        dataSource?.update(with: data)
+    func didSucceed<VM>(with results: [VM]) where VM : ViewModelProtocol {
+        dataSource?.update(with: results as! [TeamViewModel])
         collectionView.reloadData()
     }
 
@@ -80,7 +80,10 @@ extension HomeViewController: ViewProtocol {
 
 // MARK: - UISearchBarDelegate & UISearchResultsUpdating & UISearchControllerDelegate
 extension HomeViewController: UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
-    func updateSearchResults(for searchController: UISearchController) {}
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        interactor?.fetch(with: .list(.allTeams(leagueName: text)))
+    }
     
     var isSeachBarEmpty: Bool {
         return searchController.searchBar.text == ""

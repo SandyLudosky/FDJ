@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		260026182344D9C900572615 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260026172344D9C900572615 /* HomeInteractor.swift */; };
+		2600261B2344EF2900572615 /* PlayersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2600261A2344EF2900572615 /* PlayersInteractor.swift */; };
 		261F51D322E72D540023150C /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F51D222E72D540023150C /* Reachability.swift */; };
 		264745CD22E541A7001A92A8 /* QueryItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264745CC22E541A7001A92A8 /* QueryItemProvider.swift */; };
 		264745CF22E54262001A92A8 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264745CE22E54262001A92A8 /* List.swift */; };
@@ -75,6 +77,8 @@
 /* Begin PBXFileReference section */
 		08D4ABEA79DE0E0C15197A41 /* Pods-FDJTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FDJTests.debug.xcconfig"; path = "Target Support Files/Pods-FDJTests/Pods-FDJTests.debug.xcconfig"; sourceTree = "<group>"; };
 		18489DF2041299465AE6485C /* Pods-FDJUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FDJUITests.debug.xcconfig"; path = "Target Support Files/Pods-FDJUITests/Pods-FDJUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		260026172344D9C900572615 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		2600261A2344EF2900572615 /* PlayersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersInteractor.swift; sourceTree = "<group>"; };
 		261F51D222E72D540023150C /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		264745CC22E541A7001A92A8 /* QueryItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryItemProvider.swift; sourceTree = "<group>"; };
 		264745CE22E54262001A92A8 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
@@ -161,6 +165,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		260026162344D4FC00572615 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				260026172344D9C900572615 /* HomeInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		260026192344EF0F00572615 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2600261A2344EF2900572615 /* PlayersInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		2647459322E4E1E7001A92A8 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +311,7 @@
 		268803F722DE4E0E003D375B /* Home-Search */ = {
 			isa = PBXGroup;
 			children = (
+				260026162344D4FC00572615 /* Interactor */,
 				268803FB22DE4E57003D375B /* Model */,
 				268803FA22DE4E52003D375B /* View */,
 				268803F922DE4E4C003D375B /* Presenter */,
@@ -301,6 +322,7 @@
 		268803F822DE4E36003D375B /* Players */ = {
 			isa = PBXGroup;
 			children = (
+				260026192344EF0F00572615 /* Interactor */,
 				268803FD22DE4E5E003D375B /* Model */,
 				268803FC22DE4E5E003D375B /* View */,
 				268803FE22DE4E5E003D375B /* Presenter */,
@@ -702,6 +724,7 @@
 				268803AC22DDE291003D375B /* AppDelegate.swift in Sources */,
 				268803EC22DDE366003D375B /* Protocols.swift in Sources */,
 				264745DD22E55E26001A92A8 /* ConnectivityService.swift in Sources */,
+				260026182344D9C900572615 /* HomeInteractor.swift in Sources */,
 				2688040922DE57A8003D375B /* TeamCell.swift in Sources */,
 				268803EB22DDE366003D375B /* Enums+Error.swift in Sources */,
 				264745D122E545EA001A92A8 /* Search.swift in Sources */,
@@ -722,6 +745,7 @@
 				2688040322DE4EF3003D375B /* ViewModels.swift in Sources */,
 				264745D722E549F1001A92A8 /* Image.swift in Sources */,
 				2688041122DE673E003D375B /* TeamDataSource.swift in Sources */,
+				2600261B2344EF2900572615 /* PlayersInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

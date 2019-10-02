@@ -32,6 +32,7 @@ private extension APIClient {
         }
         
         return URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+        
             if error == nil {
                 guard let httpResponse = response as? HTTPURLResponse else {
                     completion(.failure(.responseUnsuccessful))

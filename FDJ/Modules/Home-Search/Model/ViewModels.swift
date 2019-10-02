@@ -9,8 +9,8 @@
 import Foundation
 
 protocol ViewModelProtocol {
-    associatedtype T
-    init(with type: T)
+    associatedtype VM
+    init(with type: VM)
 }
 
 struct LeagueViewModel: ViewModelProtocol {

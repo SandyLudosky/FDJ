@@ -10,41 +10,19 @@ import Foundation
 import UIKit
 
 class HomePresenter: PresenterProtocol {
-    
-    var view: HomeViewController?
-    var dataManager: DataManager?
     typealias T = Team
-  
-    required init(with view: HomeViewController) {
+    var view: ViewProtocol?
+    
+    required init(with view: ViewProtocol) {
         self.view = view
-        dataManager = DataManager()
+    }
+    func didSucceed(_ viewModel: Any) {
+        self.view?.stopLoading()
+        self.view?.didSucceed(with: viewModel as! [TeamViewModel])
     }
     
-    func fetch(with service: APIService) {
-        self.view?.startLoading()
-        dataManager?.get(Team.self, for: service, completion: { results in
-            switch results {
-            case .success(let collection):
-                guard let teams = collection as? [Team] else { return }
-                let viewModels = teams.map({ team -> TeamViewModel in
-                    return TeamViewModel(with: team)
-                })
-                DispatchQueue.main.async {
-                    self.view?.didSucceed(with: viewModels)
-                    self.view?.stopLoading()
-                }
-            case .failure(let error):
-                DispatchQueue.main.async {
-                     self.view?.didFail(with: error)
-                     self.view?.stopLoading()
-                }
-               
-            }
-        })
+    func didFail(_ error: ErrorHandler) {
+        self.view?.didFail(with: error)
+        self.view?.stopLoading()
     }
-    
-    deinit {
-        dataManager = nil
-    }
-    
 }
